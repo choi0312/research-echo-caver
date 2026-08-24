@@ -1,0 +1,32 @@
+{
+  "baseline": {
+    "ad_balanced_accuracy": 0.6291119498833582,
+    "non_ad": 0.8372916666666667,
+    "overall": 0.8080601717467929
+  },
+  "echo": {
+    "ad_balanced_accuracy": 0.6284501061571126,
+    "delta_ci95": [
+      -0.0009368923151268637,
+      0.00631711079786796
+    ],
+    "delta_overall": 0.0026977664813337965,
+    "mcnemar": {
+      "control_only_correct": 42,
+      "discordant": 100,
+      "treatment_only_correct": 58,
+      "two_sided_exact_p": 0.13321061920721333
+    },
+    "non_ad": 0.8404166666666667,
+    "overall": 0.8107579382281267,
+    "probability_delta_gt_zero": 0.92716
+  },
+  "passes_absolute_82": false,
+  "passes_positive_delta": true,
+  "promotion_rule": "absolute sampled-MMAD Overall strictly greater than 82%",
+  "retained_candidate": null,
+  "rows": 5600,
+  "rows_per_cell": 200,
+  "schema_version": "echo-caver-screen5600-gate-v1",
+  "source_task_cells": 28
+}

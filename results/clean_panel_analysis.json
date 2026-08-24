@@ -1,0 +1,703 @@
+{
+  "analysis_schema_version": "strict-paired-two-adapter-analysis-v1",
+  "answer_policy": {
+    "invalid_scoring": "incorrect under ITT; semantic AD decision is null, never normal",
+    "parser": "exactly one case-sensitive <answer>X</answer> tag; X must be in options",
+    "prediction_source": "completion only; stored prediction fields ignored"
+  },
+  "cluster_bootstrap": {
+    "available": true,
+    "claim_status": "component-cluster CI with completed near-duplicate audit",
+    "clusters": 2280,
+    "metrics": {
+      "ad_balanced_accuracy": {
+        "control_ci95": [
+          0.597781982301654,
+          0.6609533225910424
+        ],
+        "control_point": 0.6291119498833582,
+        "defined_replicates": 50000,
+        "delta_ci95": [
+          -0.010747191366182357,
+          0.009319726885901347
+        ],
+        "delta_point": -0.000661843726245559,
+        "probability_delta_gt_zero": 0.44362,
+        "treatment_ci95": [
+          0.5969361376552687,
+          0.660209564872988
+        ],
+        "treatment_point": 0.6284501061571126
+      },
+      "ad_tnr": {
+        "control_ci95": [
+          0.3774193548387097,
+          0.4887459807073955
+        ],
+        "control_point": 0.43312101910828027,
+        "defined_replicates": 50000,
+        "delta_ci95": [
+          -0.026627218934911268,
+          0.006451612903225767
+        ],
+        "delta_point": -0.009554140127388533,
+        "probability_delta_gt_zero": 0.08536,
+        "treatment_ci95": [
+          0.3681159420289855,
+          0.47896440129449835
+        ],
+        "treatment_point": 0.42356687898089174
+      },
+      "ad_tpr": {
+        "control_ci95": [
+          0.789795918367347,
+          0.8596837944664032
+        ],
+        "control_point": 0.8251028806584362,
+        "defined_replicates": 50000,
+        "delta_ci95": [
+          -0.0020790020790021346,
+          0.020576131687242816
+        ],
+        "delta_point": 0.008230452674897193,
+        "probability_delta_gt_zero": 0.90616,
+        "treatment_ci95": [
+          0.7991169977924945,
+          0.8662551440329218
+        ],
+        "treatment_point": 0.8333333333333334
+      },
+      "itt_accuracy": {
+        "control_ci95": [
+          0.8028524891878333,
+          0.8243813681365709
+        ],
+        "control_point": 0.8135714285714286,
+        "defined_replicates": 50000,
+        "delta_ci95": [
+          -0.0007411559259303508,
+          0.006499209555594576
+        ],
+        "delta_point": 0.0028571428571427804,
+        "probability_delta_gt_zero": 0.932,
+        "treatment_ci95": [
+          0.8057728851996672,
+          0.8272065520501856
+        ],
+        "treatment_point": 0.8164285714285714
+      },
+      "mmad_overall_macro": {
+        "control_ci95": [
+          0.797768111361004,
+          0.8184526984247661
+        ],
+        "control_point": 0.8080601717467929,
+        "defined_replicates": 50000,
+        "delta_ci95": [
+          -0.0009368923151268637,
+          0.00631711079786796
+        ],
+        "delta_point": 0.0026977664813337965,
+        "probability_delta_gt_zero": 0.92716,
+        "treatment_ci95": [
+          0.8005493038918047,
+          0.8211125084615492
+        ],
+        "treatment_point": 0.8107579382281267
+      },
+      "non_ad_six_task_macro": {
+        "control_ci95": [
+          0.8265739217248782,
+          0.8480997262929403
+        ],
+        "control_point": 0.8372916666666667,
+        "defined_replicates": 50000,
+        "delta_ci95": [
+          -0.000790864234759855,
+          0.007083154532463624
+        ],
+        "delta_point": 0.0031250000000000444,
+        "probability_delta_gt_zero": 0.94078,
+        "treatment_ci95": [
+          0.8297722342926843,
+          0.8512212533175074
+        ],
+        "treatment_point": 0.8404166666666667
+      }
+    },
+    "near_duplicate_audit_complete": true,
+    "replicates_requested": 50000,
+    "resampling_unit": "query-reference connected component",
+    "seed": 20260824
+  },
+  "control": "/workspace/MMAD/research/runpod/remote_runs/h200x2_echo_caver_screen5600_v1-20260824T081025Z-19744/results/freb.jsonl",
+  "control_metrics": {
+    "ad_balanced_accuracy": 0.6291119498833582,
+    "ad_tnr": 0.43312101910828027,
+    "ad_tpr": 0.8251028806584362,
+    "correct": 4556,
+    "invalid": 1,
+    "invalid_reasons": {
+      "missing_or_malformed_exact_answer_tag": 1
+    },
+    "itt_accuracy": 0.8135714285714286,
+    "mmad_overall_macro": 0.8080601717467929,
+    "non_ad_six_task_macro": 0.8372916666666667,
+    "per_source_task": {
+      "GoodsAD::Anomaly Detection": 0.5803071915369749,
+      "GoodsAD::Defect Analysis": 0.92,
+      "GoodsAD::Defect Classification": 0.71,
+      "GoodsAD::Defect Description": 0.9,
+      "GoodsAD::Defect Localization": 0.73,
+      "GoodsAD::Object Analysis": 0.86,
+      "GoodsAD::Object Classification": 0.885,
+      "MVTec-AD::Anomaly Detection": 0.8111947547353084,
+      "MVTec-AD::Defect Analysis": 0.935,
+      "MVTec-AD::Defect Classification": 0.81,
+      "MVTec-AD::Defect Description": 0.93,
+      "MVTec-AD::Defect Localization": 0.875,
+      "MVTec-AD::Object Analysis": 0.945,
+      "MVTec-AD::Object Classification": 1.0,
+      "MVTec-LOCO::Anomaly Detection": 0.5125,
+      "MVTec-LOCO::Defect Analysis": 0.815,
+      "MVTec-LOCO::Defect Classification": 0.775,
+      "MVTec-LOCO::Defect Description": 0.78,
+      "MVTec-LOCO::Defect Localization": 0.605,
+      "MVTec-LOCO::Object Analysis": 0.835,
+      "MVTec-LOCO::Object Classification": 0.915,
+      "VisA::Anomaly Detection": 0.6266828626379188,
+      "VisA::Defect Analysis": 0.835,
+      "VisA::Defect Classification": 0.68,
+      "VisA::Defect Description": 0.84,
+      "VisA::Defect Localization": 0.675,
+      "VisA::Object Analysis": 0.88,
+      "VisA::Object Classification": 0.96
+    },
+    "per_task_macro": {
+      "Anomaly Detection": 0.6326712022275505,
+      "Defect Analysis": 0.87625,
+      "Defect Classification": 0.74375,
+      "Defect Description": 0.8625,
+      "Defect Localization": 0.72125,
+      "Object Analysis": 0.88,
+      "Object Classification": 0.94
+    },
+    "rows": 5600,
+    "valid_only_accuracy": 0.8137167351312734,
+    "valid_rate": 0.9998214285714285
+  },
+  "control_sha256": "567268100d277ad116573ecea1dd0273e3c0b54205379a6863c8c114d3799c19",
+  "manifest": "/workspace/MMAD/research/manifests/echo_caver_v1/screen5600.jsonl",
+  "manifest_sha256": "cedf23061dc8d95d255fbadd8975de9a7a45a597946b525d83a423f431ee5b33",
+  "mcnemar_exact": {
+    "ad": {
+      "control_only_correct": 6,
+      "discordant": 13,
+      "treatment_only_correct": 7,
+      "two_sided_exact_p": 1.0
+    },
+    "by_source": {
+      "GoodsAD": {
+        "control_only_correct": 12,
+        "discordant": 38,
+        "treatment_only_correct": 26,
+        "two_sided_exact_p": 0.03355243967962451
+      },
+      "MVTec-AD": {
+        "control_only_correct": 6,
+        "discordant": 14,
+        "treatment_only_correct": 8,
+        "two_sided_exact_p": 0.79052734375
+      },
+      "MVTec-LOCO": {
+        "control_only_correct": 13,
+        "discordant": 25,
+        "treatment_only_correct": 12,
+        "two_sided_exact_p": 1.0
+      },
+      "VisA": {
+        "control_only_correct": 11,
+        "discordant": 23,
+        "treatment_only_correct": 12,
+        "two_sided_exact_p": 1.0
+      }
+    },
+    "by_task": {
+      "Anomaly Detection": {
+        "control_only_correct": 6,
+        "discordant": 13,
+        "treatment_only_correct": 7,
+        "two_sided_exact_p": 1.0
+      },
+      "Defect Analysis": {
+        "control_only_correct": 5,
+        "discordant": 10,
+        "treatment_only_correct": 5,
+        "two_sided_exact_p": 1.0
+      },
+      "Defect Classification": {
+        "control_only_correct": 8,
+        "discordant": 25,
+        "treatment_only_correct": 17,
+        "two_sided_exact_p": 0.10775214433670044
+      },
+      "Defect Description": {
+        "control_only_correct": 4,
+        "discordant": 13,
+        "treatment_only_correct": 9,
+        "two_sided_exact_p": 0.266845703125
+      },
+      "Defect Localization": {
+        "control_only_correct": 12,
+        "discordant": 25,
+        "treatment_only_correct": 13,
+        "two_sided_exact_p": 1.0
+      },
+      "Object Analysis": {
+        "control_only_correct": 5,
+        "discordant": 9,
+        "treatment_only_correct": 4,
+        "two_sided_exact_p": 1.0
+      },
+      "Object Classification": {
+        "control_only_correct": 2,
+        "discordant": 5,
+        "treatment_only_correct": 3,
+        "two_sided_exact_p": 1.0
+      }
+    },
+    "non_ad": {
+      "control_only_correct": 36,
+      "discordant": 87,
+      "treatment_only_correct": 51,
+      "two_sided_exact_p": 0.1329018851954619
+    },
+    "overall": {
+      "control_only_correct": 42,
+      "discordant": 100,
+      "treatment_only_correct": 58,
+      "two_sided_exact_p": 0.13321061920721333
+    }
+  },
+  "paired_delta_treatment_minus_control": {
+    "ad_balanced_accuracy": -0.000661843726245559,
+    "ad_tnr": -0.009554140127388533,
+    "ad_tpr": 0.008230452674897193,
+    "itt_accuracy": 0.0028571428571427804,
+    "mmad_overall_macro": 0.0026977664813337965,
+    "non_ad_six_task_macro": 0.0031250000000000444
+  },
+  "paired_transitions": {
+    "ad_decision": {
+      "anomaly_to_anomaly": 576,
+      "anomaly_to_invalid": 0,
+      "anomaly_to_normal": 3,
+      "invalid_to_anomaly": 0,
+      "invalid_to_invalid": 0,
+      "invalid_to_normal": 0,
+      "normal_to_anomaly": 10,
+      "normal_to_invalid": 1,
+      "normal_to_normal": 210
+    },
+    "correctness": {
+      "both_correct": 4514,
+      "both_wrong": 986,
+      "control_only_correct": 42,
+      "treatment_only_correct": 58
+    },
+    "invalid_sample_ids": {
+      "control": [
+        "0df39fa25590ce4159a51e5e"
+      ],
+      "treatment": [
+        "0df39fa25590ce4159a51e5e",
+        "6954c2f905c10eef72ea1836",
+        "f3e5e9cbc4c4f8e0c22999cc"
+      ]
+    },
+    "validity": {
+      "invalid_to_invalid": 1,
+      "invalid_to_valid": 0,
+      "valid_to_invalid": 2,
+      "valid_to_valid": 5597
+    }
+  },
+  "provenance": {
+    "control": {
+      "adapter_identity_sha256": "a8c50acf7d2b8a05620a97c6779124fb9a516513198919822e8803a0cf7cfa83",
+      "adapter_path": "/workspace/MMAD/data/external_training/checkpoints/freb_caver_v0.1.0",
+      "loaded_adapter_parameter_count": 33077651
+    },
+    "inference_contract": {
+      "base_model": {
+        "model_config_files": [
+          {
+            "bytes": 1491,
+            "name": "config.json",
+            "sha256": "c73e1f81f374d903872f2833f066b8cd081037d72f8c0f436d06fa7b7cc82ea5"
+          },
+          {
+            "bytes": 287,
+            "name": "generation_config.json",
+            "sha256": "9eaacb0abbca15620acb479d2e796b336a97cbc3950fac829f3aed5ba33fc4b2"
+          },
+          {
+            "bytes": 575,
+            "name": "preprocessor_config.json",
+            "sha256": "549c158011407dfb750d9ec578047cf76f5bfe365cd0aa069a50137d3f98d9dd"
+          },
+          {
+            "bytes": 5881,
+            "name": "tokenizer_config.json",
+            "sha256": "a9aa52d205bbb86d1f34b16dc52795343197d384a2941817ac3f25b1020ecd27"
+          },
+          {
+            "bytes": 613,
+            "name": "special_tokens_map.json",
+            "sha256": "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd"
+          },
+          {
+            "bytes": 232,
+            "name": "checkpoint_provenance.json",
+            "sha256": "8888ef4357ab58ef890f1905c67f8b7ea6e29c45add238a55db0bd64d36663df"
+          }
+        ],
+        "model_reference": "/workspace/models/JUDO"
+      },
+      "generation": {
+        "attn_implementation": "sdpa",
+        "batch_size": 4,
+        "coverage_threshold": 0.02,
+        "do_sample": false,
+        "grid_size": 16,
+        "image_size": 512,
+        "max_new_tokens": 1024,
+        "padding_side": "left",
+        "torch_dtype": "bfloat16",
+        "use_cache": true
+      },
+      "id_field": "sample_id",
+      "implementation": {
+        "paired_eval_contract_sha256": "c18dcc30aedd4deb8d6927bc471c29069def7b21592e5012c0ff246b0e9f0d16",
+        "runner_sha256": "f160385a1004749485f2dff060e121ac1bf280770d92914171d7613289b8d6a9"
+      },
+      "manifest_sha256": "cedf23061dc8d95d255fbadd8975de9a7a45a597946b525d83a423f431ee5b33",
+      "prompt": {
+        "official_leading_n_typo": true,
+        "system_prompt_sha256_by_structure": {
+          "seg_think_answer": "165438afaf7d5b1104244d50ef252353ae0e74b188bc6d6532b05db9232d905e"
+        },
+        "two_image_role_text": "First image = QUERY; Second image = NORMAL template."
+      },
+      "runtime": {
+        "cuda": "12.8",
+        "gpu": "NVIDIA H200",
+        "numpy": "2.5.2",
+        "peft": "0.18.1",
+        "torch": "2.8.0+cu128",
+        "transformers": "4.57.3"
+      },
+      "schema_version": "judo-paired-eval-contract-v1",
+      "selected_ids_sha256": "3dd84a8a870cc1023891bdd1b6f0ed34ba743ccf34930a69eea23b9aa57ef098",
+      "selected_rows": 5600,
+      "selection": {
+        "family": null,
+        "intervention": null,
+        "label": null,
+        "limit": null,
+        "task": null
+      }
+    },
+    "inference_contract_sha256": "58055df99a85988615653c4318028c04199862a1b99f68e205e199530dc341e5",
+    "treatment": {
+      "adapter_identity_sha256": "ab4d4389c0f163068e0b0d082d07cb653db14b89accca50c4e2a66c579b9071d",
+      "adapter_path": "/workspace/MMAD/research/runpod/remote_runs/h200x2_echo_caver_screen320_v1-20260824T072025Z-17260/training/echo/adapter",
+      "loaded_adapter_parameter_count": 33077651
+    }
+  },
+  "rows": 5600,
+  "scope": "full-7-task",
+  "source_strata": {
+    "GoodsAD": {
+      "control": {
+        "ad_balanced_accuracy": 0.5803071915369749,
+        "ad_tnr": 0.5057471264367817,
+        "ad_tpr": 0.6548672566371682,
+        "invalid": 0,
+        "itt_accuracy": 0.7992857142857143,
+        "mmad_overall_macro": 0.797901027362425,
+        "non_ad_six_task_macro": 0.8341666666666666,
+        "per_task_macro": {
+          "Anomaly Detection": 0.5803071915369749,
+          "Defect Analysis": 0.92,
+          "Defect Classification": 0.71,
+          "Defect Description": 0.9,
+          "Defect Localization": 0.73,
+          "Object Analysis": 0.86,
+          "Object Classification": 0.885
+        },
+        "rows": 1400,
+        "valid_rate": 1.0
+      },
+      "mcnemar_exact": {
+        "control_only_correct": 12,
+        "discordant": 38,
+        "treatment_only_correct": 26,
+        "two_sided_exact_p": 0.03355243967962451
+      },
+      "paired_delta": {
+        "ad_balanced_accuracy": -0.003967043027159001,
+        "ad_tnr": -0.034482758620689724,
+        "ad_tpr": 0.02654867256637161,
+        "itt_accuracy": 0.010000000000000009,
+        "mmad_overall_macro": 0.009433279567548802,
+        "non_ad_six_task_macro": 0.011666666666666714
+      },
+      "treatment": {
+        "ad_balanced_accuracy": 0.5763401485098159,
+        "ad_tnr": 0.47126436781609193,
+        "ad_tpr": 0.6814159292035398,
+        "invalid": 1,
+        "itt_accuracy": 0.8092857142857143,
+        "mmad_overall_macro": 0.8073343069299738,
+        "non_ad_six_task_macro": 0.8458333333333333,
+        "per_task_macro": {
+          "Anomaly Detection": 0.5763401485098159,
+          "Defect Analysis": 0.93,
+          "Defect Classification": 0.725,
+          "Defect Description": 0.905,
+          "Defect Localization": 0.75,
+          "Object Analysis": 0.87,
+          "Object Classification": 0.895
+        },
+        "rows": 1400,
+        "valid_rate": 0.9992857142857143
+      }
+    },
+    "MVTec-AD": {
+      "control": {
+        "ad_balanced_accuracy": 0.8111947547353084,
+        "ad_tnr": 0.7068965517241379,
+        "ad_tpr": 0.9154929577464789,
+        "invalid": 0,
+        "itt_accuracy": 0.9071428571428571,
+        "mmad_overall_macro": 0.900884964962187,
+        "non_ad_six_task_macro": 0.9158333333333334,
+        "per_task_macro": {
+          "Anomaly Detection": 0.8111947547353084,
+          "Defect Analysis": 0.935,
+          "Defect Classification": 0.81,
+          "Defect Description": 0.93,
+          "Defect Localization": 0.875,
+          "Object Analysis": 0.945,
+          "Object Classification": 1.0
+        },
+        "rows": 1400,
+        "valid_rate": 1.0
+      },
+      "mcnemar_exact": {
+        "control_only_correct": 6,
+        "discordant": 14,
+        "treatment_only_correct": 8,
+        "two_sided_exact_p": 0.79052734375
+      },
+      "paired_delta": {
+        "ad_balanced_accuracy": 0.0,
+        "ad_tnr": 0.0,
+        "ad_tpr": 0.0,
+        "itt_accuracy": 0.0014285714285714457,
+        "mmad_overall_macro": 0.0014285714285713347,
+        "non_ad_six_task_macro": 0.0016666666666665941
+      },
+      "treatment": {
+        "ad_balanced_accuracy": 0.8111947547353084,
+        "ad_tnr": 0.7068965517241379,
+        "ad_tpr": 0.9154929577464789,
+        "invalid": 0,
+        "itt_accuracy": 0.9085714285714286,
+        "mmad_overall_macro": 0.9023135363907583,
+        "non_ad_six_task_macro": 0.9175,
+        "per_task_macro": {
+          "Anomaly Detection": 0.8111947547353084,
+          "Defect Analysis": 0.935,
+          "Defect Classification": 0.82,
+          "Defect Description": 0.94,
+          "Defect Localization": 0.87,
+          "Object Analysis": 0.945,
+          "Object Classification": 0.995
+        },
+        "rows": 1400,
+        "valid_rate": 1.0
+      }
+    },
+    "MVTec-LOCO": {
+      "control": {
+        "ad_balanced_accuracy": 0.5125,
+        "ad_tnr": 0.075,
+        "ad_tpr": 0.95,
+        "invalid": 0,
+        "itt_accuracy": 0.7607142857142857,
+        "mmad_overall_macro": 0.7482142857142857,
+        "non_ad_six_task_macro": 0.7875,
+        "per_task_macro": {
+          "Anomaly Detection": 0.5125,
+          "Defect Analysis": 0.815,
+          "Defect Classification": 0.775,
+          "Defect Description": 0.78,
+          "Defect Localization": 0.605,
+          "Object Analysis": 0.835,
+          "Object Classification": 0.915
+        },
+        "rows": 1400,
+        "valid_rate": 1.0
+      },
+      "mcnemar_exact": {
+        "control_only_correct": 13,
+        "discordant": 25,
+        "treatment_only_correct": 12,
+        "two_sided_exact_p": 1.0
+      },
+      "paired_delta": {
+        "ad_balanced_accuracy": 0.0,
+        "ad_tnr": 0.0,
+        "ad_tpr": 0.0,
+        "itt_accuracy": -0.0007142857142856673,
+        "mmad_overall_macro": -0.0007142857142857784,
+        "non_ad_six_task_macro": -0.0008333333333333526
+      },
+      "treatment": {
+        "ad_balanced_accuracy": 0.5125,
+        "ad_tnr": 0.075,
+        "ad_tpr": 0.95,
+        "invalid": 1,
+        "itt_accuracy": 0.76,
+        "mmad_overall_macro": 0.7474999999999999,
+        "non_ad_six_task_macro": 0.7866666666666666,
+        "per_task_macro": {
+          "Anomaly Detection": 0.5125,
+          "Defect Analysis": 0.81,
+          "Defect Classification": 0.785,
+          "Defect Description": 0.785,
+          "Defect Localization": 0.605,
+          "Object Analysis": 0.82,
+          "Object Classification": 0.915
+        },
+        "rows": 1400,
+        "valid_rate": 0.9992857142857143
+      }
+    },
+    "VisA": {
+      "control": {
+        "ad_balanced_accuracy": 0.6266828626379188,
+        "ad_tnr": 0.5056179775280899,
+        "ad_tpr": 0.7477477477477478,
+        "invalid": 1,
+        "itt_accuracy": 0.7871428571428571,
+        "mmad_overall_macro": 0.7852404089482742,
+        "non_ad_six_task_macro": 0.8116666666666666,
+        "per_task_macro": {
+          "Anomaly Detection": 0.6266828626379188,
+          "Defect Analysis": 0.835,
+          "Defect Classification": 0.68,
+          "Defect Description": 0.84,
+          "Defect Localization": 0.675,
+          "Object Analysis": 0.88,
+          "Object Classification": 0.96
+        },
+        "rows": 1400,
+        "valid_rate": 0.9992857142857143
+      },
+      "mcnemar_exact": {
+        "control_only_correct": 11,
+        "discordant": 23,
+        "treatment_only_correct": 12,
+        "two_sided_exact_p": 1.0
+      },
+      "paired_delta": {
+        "ad_balanced_accuracy": 0.0045045045045044585,
+        "ad_tnr": 0.0,
+        "ad_tpr": 0.009009009009009028,
+        "itt_accuracy": 0.0007142857142856673,
+        "mmad_overall_macro": 0.0006435006435004942,
+        "non_ad_six_task_macro": 0.0
+      },
+      "treatment": {
+        "ad_balanced_accuracy": 0.6311873671424233,
+        "ad_tnr": 0.5056179775280899,
+        "ad_tpr": 0.7567567567567568,
+        "invalid": 1,
+        "itt_accuracy": 0.7878571428571428,
+        "mmad_overall_macro": 0.7858839095917747,
+        "non_ad_six_task_macro": 0.8116666666666666,
+        "per_task_macro": {
+          "Anomaly Detection": 0.6311873671424233,
+          "Defect Analysis": 0.83,
+          "Defect Classification": 0.69,
+          "Defect Description": 0.845,
+          "Defect Localization": 0.665,
+          "Object Analysis": 0.88,
+          "Object Classification": 0.96
+        },
+        "rows": 1400,
+        "valid_rate": 0.9992857142857143
+      }
+    }
+  },
+  "treatment": "/workspace/MMAD/research/runpod/remote_runs/h200x2_echo_caver_screen5600_v1-20260824T081025Z-19744/results/echo.jsonl",
+  "treatment_metrics": {
+    "ad_balanced_accuracy": 0.6284501061571126,
+    "ad_tnr": 0.42356687898089174,
+    "ad_tpr": 0.8333333333333334,
+    "correct": 4572,
+    "invalid": 3,
+    "invalid_reasons": {
+      "missing_or_malformed_exact_answer_tag": 3
+    },
+    "itt_accuracy": 0.8164285714285714,
+    "mmad_overall_macro": 0.8107579382281267,
+    "non_ad_six_task_macro": 0.8404166666666667,
+    "per_source_task": {
+      "GoodsAD::Anomaly Detection": 0.5763401485098159,
+      "GoodsAD::Defect Analysis": 0.93,
+      "GoodsAD::Defect Classification": 0.725,
+      "GoodsAD::Defect Description": 0.905,
+      "GoodsAD::Defect Localization": 0.75,
+      "GoodsAD::Object Analysis": 0.87,
+      "GoodsAD::Object Classification": 0.895,
+      "MVTec-AD::Anomaly Detection": 0.8111947547353084,
+      "MVTec-AD::Defect Analysis": 0.935,
+      "MVTec-AD::Defect Classification": 0.82,
+      "MVTec-AD::Defect Description": 0.94,
+      "MVTec-AD::Defect Localization": 0.87,
+      "MVTec-AD::Object Analysis": 0.945,
+      "MVTec-AD::Object Classification": 0.995,
+      "MVTec-LOCO::Anomaly Detection": 0.5125,
+      "MVTec-LOCO::Defect Analysis": 0.81,
+      "MVTec-LOCO::Defect Classification": 0.785,
+      "MVTec-LOCO::Defect Description": 0.785,
+      "MVTec-LOCO::Defect Localization": 0.605,
+      "MVTec-LOCO::Object Analysis": 0.82,
+      "MVTec-LOCO::Object Classification": 0.915,
+      "VisA::Anomaly Detection": 0.6311873671424233,
+      "VisA::Defect Analysis": 0.83,
+      "VisA::Defect Classification": 0.69,
+      "VisA::Defect Description": 0.845,
+      "VisA::Defect Localization": 0.665,
+      "VisA::Object Analysis": 0.88,
+      "VisA::Object Classification": 0.96
+    },
+    "per_task_macro": {
+      "Anomaly Detection": 0.6328055675968869,
+      "Defect Analysis": 0.87625,
+      "Defect Classification": 0.755,
+      "Defect Description": 0.86875,
+      "Defect Localization": 0.7225,
+      "Object Analysis": 0.8787499999999999,
+      "Object Classification": 0.94125
+    },
+    "rows": 5600,
+    "valid_only_accuracy": 0.8168661783098088,
+    "valid_rate": 0.9994642857142857
+  },
+  "treatment_sha256": "b515866b56d6d26ea68c0498c7e418e8a442bde8debdb07a037808dbade16402"
+}

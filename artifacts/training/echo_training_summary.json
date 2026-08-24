@@ -1,0 +1,448 @@
+{
+  "adapter_directory": "/workspace/MMAD/research/runpod/remote_runs/h200x2_echo_caver_screen320_v1-20260824T072025Z-17260/training/echo/adapter",
+  "adapter_weights_sha256": "21623bfafc3d329128e2753a5600a9197088ef527deeb44687ea0eacd89f4bb9",
+  "answer_protocol": {
+    "common_prefix_ids": [
+      27,
+      9217
+    ],
+    "common_prefix_text": "<answer",
+    "first_branch_token_ids": [
+      23465,
+      36721,
+      25630,
+      36495
+    ],
+    "first_branch_token_text": [
+      ">A",
+      ">B",
+      ">C",
+      ">D"
+    ],
+    "variants": [
+      [
+        27,
+        9217,
+        23465
+      ],
+      [
+        27,
+        9217,
+        36721
+      ],
+      [
+        27,
+        9217,
+        25630
+      ],
+      [
+        27,
+        9217,
+        36495
+      ]
+    ]
+  },
+  "arguments": {
+    "basis_rank": 32,
+    "batch_pairs": 2,
+    "caver_seed": "/workspace/MMAD/data/external_training/checkpoints/freb_caver_v0.1.0",
+    "data_root": "/workspace/MMAD/data/mmad-full-assets",
+    "equivariance_weight": 0.25,
+    "learning_rate": 2e-05,
+    "lora_alpha": 32,
+    "lora_rank": 16,
+    "model": "/workspace/models/JUDO",
+    "non_ad_only": true,
+    "output_dir": "/workspace/MMAD/research/runpod/remote_runs/h200x2_echo_caver_screen320_v1-20260824T072025Z-17260/training/echo",
+    "projection_mode": "evidence",
+    "reader_layers": null,
+    "repair_margin": 0.25,
+    "repair_weight": 0.75,
+    "retention_weight": 1.0,
+    "save_state_steps": 25,
+    "seed": 20260824,
+    "steps": 100,
+    "train_manifest": "/workspace/MMAD/research/data_sources/capri_caver_panel_v1/train.jsonl",
+    "validation_manifest": "/workspace/MMAD/research/data_sources/capri_caver_panel_v1/validation.jsonl",
+    "weight_decay": 0.0
+  },
+  "candidate_semantic_equivariance_error": 0.936260837059387,
+  "candidate_validation_metrics": {
+    "accuracy": 0.9293478260869565,
+    "per_cell_accuracy": {
+      "GoodsAD|Defect Analysis": 1.0,
+      "GoodsAD|Defect Classification": 0.75,
+      "GoodsAD|Defect Description": 0.8333333333333334,
+      "GoodsAD|Defect Localization": 0.8333333333333334,
+      "MVTec-AD|Defect Analysis": 1.0,
+      "MVTec-AD|Defect Classification": 0.9090909090909091,
+      "MVTec-AD|Defect Description": 0.9545454545454546,
+      "MVTec-AD|Defect Localization": 0.95,
+      "MVTec-AD|Object Analysis": 0.9583333333333334,
+      "MVTec-AD|Object Classification": 1.0,
+      "MVTec-LOCO|Defect Analysis": 1.0,
+      "MVTec-LOCO|Defect Classification": 1.0,
+      "MVTec-LOCO|Defect Description": 1.0,
+      "MVTec-LOCO|Defect Localization": 0.9,
+      "MVTec-LOCO|Object Analysis": 1.0,
+      "MVTec-LOCO|Object Classification": 1.0,
+      "VisA|Defect Analysis": 0.9047619047619048,
+      "VisA|Defect Classification": 0.8571428571428571,
+      "VisA|Defect Description": 0.9523809523809523,
+      "VisA|Defect Localization": 0.9047619047619048,
+      "VisA|Object Analysis": 1.0,
+      "VisA|Object Classification": 0.75
+    },
+    "per_task_accuracy": {
+      "Defect Analysis": 0.9473684210526315,
+      "Defect Classification": 0.8846153846153846,
+      "Defect Description": 0.95,
+      "Defect Localization": 0.9102564102564102,
+      "Object Analysis": 0.9761904761904762,
+      "Object Classification": 0.9285714285714286
+    },
+    "samples": 368,
+    "source_task_macro_accuracy": 0.9298947264856355
+  },
+  "evidence_bases": {
+    "19": {
+      "basis_rank": 32,
+      "basis_sha256": "fc1375f43732778569e2d98df9eaad8906d9df406bfed4efde08f71e21932a1d",
+      "orthonormality_max_error": 6.377696990966797e-05,
+      "reader_layer": 19,
+      "retained_singular_energy_fraction": 0.9998079538345337,
+      "site": 0,
+      "top_singular_value": 7.185356616973877,
+      "writer_layer": 18,
+      "writer_shape": [
+        3584,
+        128
+      ]
+    },
+    "21": {
+      "basis_rank": 32,
+      "basis_sha256": "cf1faa63f7c6218c7385cc581af385c36604c2e59d91bac4e6e61da41538c2e9",
+      "orthonormality_max_error": 6.884336471557617e-05,
+      "reader_layer": 21,
+      "retained_singular_energy_fraction": 0.9994816184043884,
+      "site": 1,
+      "top_singular_value": 8.832563400268555,
+      "writer_layer": 20,
+      "writer_shape": [
+        3584,
+        128
+      ]
+    },
+    "23": {
+      "basis_rank": 32,
+      "basis_sha256": "33b1bcb59faebc3b6f0a27a700eae0174282d4eb661120a2ff6b830cb903bae9",
+      "orthonormality_max_error": 6.127357482910156e-05,
+      "reader_layer": 23,
+      "retained_singular_energy_fraction": 0.9994527101516724,
+      "site": 2,
+      "top_singular_value": 8.786083221435547,
+      "writer_layer": 22,
+      "writer_shape": [
+        3584,
+        128
+      ]
+    },
+    "25": {
+      "basis_rank": 32,
+      "basis_sha256": "eaa34fdfbbf051947cb72d1d7978336f69744745024dfb5c93326a3777883f26",
+      "orthonormality_max_error": 3.7789344787597656e-05,
+      "reader_layer": 25,
+      "retained_singular_energy_fraction": 0.9993544220924377,
+      "site": 3,
+      "top_singular_value": 8.332768440246582,
+      "writer_layer": 24,
+      "writer_shape": [
+        3584,
+        128
+      ]
+    },
+    "27": {
+      "basis_rank": 32,
+      "basis_sha256": "319f87328672f4788e9124aecaa793d1cd35a60d0144b804684ef1c70877e5f4",
+      "orthonormality_max_error": 3.921985626220703e-05,
+      "reader_layer": 27,
+      "retained_singular_energy_fraction": 0.9997760653495789,
+      "site": 4,
+      "top_singular_value": 0.5800738334655762,
+      "writer_layer": 26,
+      "writer_shape": [
+        3584,
+        128
+      ]
+    }
+  },
+  "first_gradient_norms": {
+    "base_model.model.model.language_model.layers.19.mlp.down_proj.lora_A.default.weight": 0.0,
+    "base_model.model.model.language_model.layers.19.mlp.down_proj.lora_B.default.weight": 0.15802660584449768,
+    "base_model.model.model.language_model.layers.19.self_attn.o_proj.lora_A.default.weight": 0.0,
+    "base_model.model.model.language_model.layers.19.self_attn.o_proj.lora_B.default.weight": 0.6258760094642639,
+    "base_model.model.model.language_model.layers.21.mlp.down_proj.lora_A.default.weight": 0.0,
+    "base_model.model.model.language_model.layers.21.mlp.down_proj.lora_B.default.weight": 0.13154222071170807,
+    "base_model.model.model.language_model.layers.21.self_attn.o_proj.lora_A.default.weight": 0.0,
+    "base_model.model.model.language_model.layers.21.self_attn.o_proj.lora_B.default.weight": 0.2176603227853775,
+    "base_model.model.model.language_model.layers.23.mlp.down_proj.lora_A.default.weight": 0.0,
+    "base_model.model.model.language_model.layers.23.mlp.down_proj.lora_B.default.weight": 0.14885784685611725,
+    "base_model.model.model.language_model.layers.23.self_attn.o_proj.lora_A.default.weight": 0.0,
+    "base_model.model.model.language_model.layers.23.self_attn.o_proj.lora_B.default.weight": 0.23482193052768707,
+    "base_model.model.model.language_model.layers.25.mlp.down_proj.lora_A.default.weight": 0.0,
+    "base_model.model.model.language_model.layers.25.mlp.down_proj.lora_B.default.weight": 0.12867528200149536,
+    "base_model.model.model.language_model.layers.25.self_attn.o_proj.lora_A.default.weight": 0.0,
+    "base_model.model.model.language_model.layers.25.self_attn.o_proj.lora_B.default.weight": 0.19190287590026855,
+    "base_model.model.model.language_model.layers.27.mlp.down_proj.lora_A.default.weight": 0.0,
+    "base_model.model.model.language_model.layers.27.mlp.down_proj.lora_B.default.weight": 0.5925130248069763,
+    "base_model.model.model.language_model.layers.27.self_attn.o_proj.lora_A.default.weight": 0.0,
+    "base_model.model.model.language_model.layers.27.self_attn.o_proj.lora_B.default.weight": 0.1920158714056015
+  },
+  "input_provenance": {
+    "caver": {
+      "adapter_directory": "/workspace/MMAD/data/external_training/checkpoints/freb_caver_v0.1.0",
+      "adapter_identity_sha256": "a8c50acf7d2b8a05620a97c6779124fb9a516513198919822e8803a0cf7cfa83",
+      "architecture": "causal-anomaly-visual-evidence-recurrent-binding-v1",
+      "identity_file": "native_deep_residual_identity.json",
+      "identity_file_sha256": "f2637f2c9074d178ce8fdb2941c09ed1127e2a5de4139dc5f1105503cce71e78",
+      "lineage": {
+        "carrier": "GRAFT",
+        "caver_component_weights_sha256": "0f9a37f0a843addafaa8723d8bc935cd05dfb1ba26ee8f213028e0184999370f",
+        "external_router": false,
+        "graft_seed_weights_sha256": "c8fce3d06db4b84b9870bfe7ea42d5532c452c2bacf39f55a39e62a4cbbaafe7",
+        "homotopy_schema_version": "graft-caver-residual-homotopy-v1",
+        "inference_threshold": false
+      },
+      "native_adapter_kind": "caver",
+      "parameter_count": 33077654,
+      "schema_version": "judo-native-adapter-artifact-identity-v1",
+      "weight_file": "native_deep_residual.safetensors",
+      "weights_sha256": "ac3233dbee2de9dd1aaea4acede275ddc2d7a322427795717d9232291e03b0ed"
+    },
+    "model": "/workspace/models/JUDO",
+    "train_manifest": "/workspace/MMAD/research/data_sources/capri_caver_panel_v1/train.jsonl",
+    "train_manifest_sha256": "24f05f2a8cfdcb9784c79b90aac5e405cce2bb997d0ef87953272b10c9981ba5",
+    "validation_manifest": "/workspace/MMAD/research/data_sources/capri_caver_panel_v1/validation.jsonl",
+    "validation_manifest_sha256": "240f519d973779752f071cfe3b057445911b6f04f6a4c654ba1d4d714da18be2"
+  },
+  "last_training_metrics": {
+    "ce": 0.04783537983894348,
+    "cells": [
+      "VisA|Defect Description",
+      "VisA|Object Analysis"
+    ],
+    "gradient_norm": 0.28338634967803955,
+    "outside_subspace_max_abs_before_weight_projection": 1.509084086137591e-05,
+    "repair_margin": 0.05753135681152344,
+    "retention_kl": 0.07594923675060272,
+    "semantic_equivariance": 0.01944195292890072,
+    "step": 100,
+    "total": 0.1717936247587204
+  },
+  "max_cuda_memory_allocated_gib": 23.841482162475586,
+  "method": {
+    "basis_rank": 32,
+    "basis_source": "left singular subspace of each frozen CAVER belief_up writer",
+    "expansion": "Evidence-tangent Causal Hidden-state Orthogonal residual-reader LoRA",
+    "external_router": false,
+    "frozen_caver": true,
+    "inference_threshold": false,
+    "name": "ECHO-CAVER",
+    "projection_mode": "evidence",
+    "reader_layers": [
+      19,
+      21,
+      23,
+      25,
+      27
+    ],
+    "single_runtime_model": true,
+    "target_suffixes": [
+      "o_proj",
+      "down_proj"
+    ],
+    "weight_reprojection_after_adam": true,
+    "writer_layers": [
+      18,
+      20,
+      22,
+      24,
+      26
+    ]
+  },
+  "non_ad_only": true,
+  "projected_parameters": {
+    "base_model.model.model.language_model.layers.19.mlp.down_proj.lora_B.default.weight": {
+      "basis_rank": 32,
+      "layer": 19,
+      "shape": [
+        3584,
+        16
+      ]
+    },
+    "base_model.model.model.language_model.layers.19.self_attn.o_proj.lora_B.default.weight": {
+      "basis_rank": 32,
+      "layer": 19,
+      "shape": [
+        3584,
+        16
+      ]
+    },
+    "base_model.model.model.language_model.layers.21.mlp.down_proj.lora_B.default.weight": {
+      "basis_rank": 32,
+      "layer": 21,
+      "shape": [
+        3584,
+        16
+      ]
+    },
+    "base_model.model.model.language_model.layers.21.self_attn.o_proj.lora_B.default.weight": {
+      "basis_rank": 32,
+      "layer": 21,
+      "shape": [
+        3584,
+        16
+      ]
+    },
+    "base_model.model.model.language_model.layers.23.mlp.down_proj.lora_B.default.weight": {
+      "basis_rank": 32,
+      "layer": 23,
+      "shape": [
+        3584,
+        16
+      ]
+    },
+    "base_model.model.model.language_model.layers.23.self_attn.o_proj.lora_B.default.weight": {
+      "basis_rank": 32,
+      "layer": 23,
+      "shape": [
+        3584,
+        16
+      ]
+    },
+    "base_model.model.model.language_model.layers.25.mlp.down_proj.lora_B.default.weight": {
+      "basis_rank": 32,
+      "layer": 25,
+      "shape": [
+        3584,
+        16
+      ]
+    },
+    "base_model.model.model.language_model.layers.25.self_attn.o_proj.lora_B.default.weight": {
+      "basis_rank": 32,
+      "layer": 25,
+      "shape": [
+        3584,
+        16
+      ]
+    },
+    "base_model.model.model.language_model.layers.27.mlp.down_proj.lora_B.default.weight": {
+      "basis_rank": 32,
+      "layer": 27,
+      "shape": [
+        3584,
+        16
+      ]
+    },
+    "base_model.model.model.language_model.layers.27.self_attn.o_proj.lora_B.default.weight": {
+      "basis_rank": 32,
+      "layer": 27,
+      "shape": [
+        3584,
+        16
+      ]
+    }
+  },
+  "runtime_versions": {
+    "gpu": "NVIDIA H200",
+    "peft": "0.18.1",
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.3"
+  },
+  "schema_version": "echo-caver-training-summary-v1",
+  "scientific_identity_sha256": "b538d55b4aaa2d88f0f62f89342741fe1ec807a195db35a2730559c3e5e97bf0",
+  "seed_semantic_equivariance_error": 1.1176706068217754,
+  "seed_validation_metrics": {
+    "accuracy": 0.842391304347826,
+    "per_cell_accuracy": {
+      "GoodsAD|Defect Analysis": 1.0,
+      "GoodsAD|Defect Classification": 0.75,
+      "GoodsAD|Defect Description": 0.8333333333333334,
+      "GoodsAD|Defect Localization": 0.6666666666666666,
+      "MVTec-AD|Defect Analysis": 1.0,
+      "MVTec-AD|Defect Classification": 0.9090909090909091,
+      "MVTec-AD|Defect Description": 0.8636363636363636,
+      "MVTec-AD|Defect Localization": 0.8,
+      "MVTec-AD|Object Analysis": 0.875,
+      "MVTec-AD|Object Classification": 1.0,
+      "MVTec-LOCO|Defect Analysis": 0.8,
+      "MVTec-LOCO|Defect Classification": 0.9,
+      "MVTec-LOCO|Defect Description": 1.0,
+      "MVTec-LOCO|Defect Localization": 0.7,
+      "MVTec-LOCO|Object Analysis": 0.8333333333333334,
+      "MVTec-LOCO|Object Classification": 1.0,
+      "VisA|Defect Analysis": 0.8095238095238095,
+      "VisA|Defect Classification": 0.7857142857142857,
+      "VisA|Defect Description": 0.8571428571428571,
+      "VisA|Defect Localization": 0.7380952380952381,
+      "VisA|Object Analysis": 1.0,
+      "VisA|Object Classification": 0.75
+    },
+    "per_task_accuracy": {
+      "Defect Analysis": 0.868421052631579,
+      "Defect Classification": 0.8333333333333334,
+      "Defect Description": 0.875,
+      "Defect Localization": 0.7435897435897436,
+      "Object Analysis": 0.9047619047619048,
+      "Object Classification": 0.9285714285714286
+    },
+    "samples": 368,
+    "source_task_macro_accuracy": 0.857797127115309
+  },
+  "status": "complete",
+  "steps": 100,
+  "targets": [
+    "model.language_model.layers.19.mlp.down_proj",
+    "model.language_model.layers.19.self_attn.o_proj",
+    "model.language_model.layers.21.mlp.down_proj",
+    "model.language_model.layers.21.self_attn.o_proj",
+    "model.language_model.layers.23.mlp.down_proj",
+    "model.language_model.layers.23.self_attn.o_proj",
+    "model.language_model.layers.25.mlp.down_proj",
+    "model.language_model.layers.25.self_attn.o_proj",
+    "model.language_model.layers.27.mlp.down_proj",
+    "model.language_model.layers.27.self_attn.o_proj"
+  ],
+  "train_pairs": 963,
+  "trainable_contract": {
+    "target_module_count": 10,
+    "total_parameters": 8327619987,
+    "trainable_fraction": 0.0002852771864840859,
+    "trainable_parameter_names": [
+      "base_model.model.model.language_model.layers.19.self_attn.o_proj.lora_A.default.weight",
+      "base_model.model.model.language_model.layers.19.self_attn.o_proj.lora_B.default.weight",
+      "base_model.model.model.language_model.layers.19.mlp.down_proj.lora_A.default.weight",
+      "base_model.model.model.language_model.layers.19.mlp.down_proj.lora_B.default.weight",
+      "base_model.model.model.language_model.layers.21.self_attn.o_proj.lora_A.default.weight",
+      "base_model.model.model.language_model.layers.21.self_attn.o_proj.lora_B.default.weight",
+      "base_model.model.model.language_model.layers.21.mlp.down_proj.lora_A.default.weight",
+      "base_model.model.model.language_model.layers.21.mlp.down_proj.lora_B.default.weight",
+      "base_model.model.model.language_model.layers.23.self_attn.o_proj.lora_A.default.weight",
+      "base_model.model.model.language_model.layers.23.self_attn.o_proj.lora_B.default.weight",
+      "base_model.model.model.language_model.layers.23.mlp.down_proj.lora_A.default.weight",
+      "base_model.model.model.language_model.layers.23.mlp.down_proj.lora_B.default.weight",
+      "base_model.model.model.language_model.layers.25.self_attn.o_proj.lora_A.default.weight",
+      "base_model.model.model.language_model.layers.25.self_attn.o_proj.lora_B.default.weight",
+      "base_model.model.model.language_model.layers.25.mlp.down_proj.lora_A.default.weight",
+      "base_model.model.model.language_model.layers.25.mlp.down_proj.lora_B.default.weight",
+      "base_model.model.model.language_model.layers.27.self_attn.o_proj.lora_A.default.weight",
+      "base_model.model.model.language_model.layers.27.self_attn.o_proj.lora_B.default.weight",
+      "base_model.model.model.language_model.layers.27.mlp.down_proj.lora_A.default.weight",
+      "base_model.model.model.language_model.layers.27.mlp.down_proj.lora_B.default.weight"
+    ],
+    "trainable_parameters": 2375680
+  },
+  "training_seconds": 183.06762051582336,
+  "validation_pairs": 184,
+  "zero_init_exact_identity_max_abs": 0.0
+}

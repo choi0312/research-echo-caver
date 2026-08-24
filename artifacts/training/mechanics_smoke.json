@@ -1,0 +1,139 @@
+{
+  "first_gradient_norms": {
+    "base_model.model.model.language_model.layers.19.mlp.down_proj.lora_A.default.weight": 0.0,
+    "base_model.model.model.language_model.layers.19.mlp.down_proj.lora_B.default.weight": 0.15802660584449768,
+    "base_model.model.model.language_model.layers.19.self_attn.o_proj.lora_A.default.weight": 0.0,
+    "base_model.model.model.language_model.layers.19.self_attn.o_proj.lora_B.default.weight": 0.6258760094642639,
+    "base_model.model.model.language_model.layers.21.mlp.down_proj.lora_A.default.weight": 0.0,
+    "base_model.model.model.language_model.layers.21.mlp.down_proj.lora_B.default.weight": 0.13154222071170807,
+    "base_model.model.model.language_model.layers.21.self_attn.o_proj.lora_A.default.weight": 0.0,
+    "base_model.model.model.language_model.layers.21.self_attn.o_proj.lora_B.default.weight": 0.2176603227853775,
+    "base_model.model.model.language_model.layers.23.mlp.down_proj.lora_A.default.weight": 0.0,
+    "base_model.model.model.language_model.layers.23.mlp.down_proj.lora_B.default.weight": 0.14885784685611725,
+    "base_model.model.model.language_model.layers.23.self_attn.o_proj.lora_A.default.weight": 0.0,
+    "base_model.model.model.language_model.layers.23.self_attn.o_proj.lora_B.default.weight": 0.23482193052768707,
+    "base_model.model.model.language_model.layers.25.mlp.down_proj.lora_A.default.weight": 0.0,
+    "base_model.model.model.language_model.layers.25.mlp.down_proj.lora_B.default.weight": 0.12867528200149536,
+    "base_model.model.model.language_model.layers.25.self_attn.o_proj.lora_A.default.weight": 0.0,
+    "base_model.model.model.language_model.layers.25.self_attn.o_proj.lora_B.default.weight": 0.19190287590026855,
+    "base_model.model.model.language_model.layers.27.mlp.down_proj.lora_A.default.weight": 0.0,
+    "base_model.model.model.language_model.layers.27.mlp.down_proj.lora_B.default.weight": 0.5925130248069763,
+    "base_model.model.model.language_model.layers.27.self_attn.o_proj.lora_A.default.weight": 0.0,
+    "base_model.model.model.language_model.layers.27.self_attn.o_proj.lora_B.default.weight": 0.1920158714056015
+  },
+  "max_cuda_memory_allocated_gib": 23.413116455078125,
+  "projected_parameters": {
+    "base_model.model.model.language_model.layers.19.mlp.down_proj.lora_B.default.weight": {
+      "basis_rank": 32,
+      "layer": 19,
+      "shape": [
+        3584,
+        16
+      ]
+    },
+    "base_model.model.model.language_model.layers.19.self_attn.o_proj.lora_B.default.weight": {
+      "basis_rank": 32,
+      "layer": 19,
+      "shape": [
+        3584,
+        16
+      ]
+    },
+    "base_model.model.model.language_model.layers.21.mlp.down_proj.lora_B.default.weight": {
+      "basis_rank": 32,
+      "layer": 21,
+      "shape": [
+        3584,
+        16
+      ]
+    },
+    "base_model.model.model.language_model.layers.21.self_attn.o_proj.lora_B.default.weight": {
+      "basis_rank": 32,
+      "layer": 21,
+      "shape": [
+        3584,
+        16
+      ]
+    },
+    "base_model.model.model.language_model.layers.23.mlp.down_proj.lora_B.default.weight": {
+      "basis_rank": 32,
+      "layer": 23,
+      "shape": [
+        3584,
+        16
+      ]
+    },
+    "base_model.model.model.language_model.layers.23.self_attn.o_proj.lora_B.default.weight": {
+      "basis_rank": 32,
+      "layer": 23,
+      "shape": [
+        3584,
+        16
+      ]
+    },
+    "base_model.model.model.language_model.layers.25.mlp.down_proj.lora_B.default.weight": {
+      "basis_rank": 32,
+      "layer": 25,
+      "shape": [
+        3584,
+        16
+      ]
+    },
+    "base_model.model.model.language_model.layers.25.self_attn.o_proj.lora_B.default.weight": {
+      "basis_rank": 32,
+      "layer": 25,
+      "shape": [
+        3584,
+        16
+      ]
+    },
+    "base_model.model.model.language_model.layers.27.mlp.down_proj.lora_B.default.weight": {
+      "basis_rank": 32,
+      "layer": 27,
+      "shape": [
+        3584,
+        16
+      ]
+    },
+    "base_model.model.model.language_model.layers.27.self_attn.o_proj.lora_B.default.weight": {
+      "basis_rank": 32,
+      "layer": 27,
+      "shape": [
+        3584,
+        16
+      ]
+    }
+  },
+  "projection_mode": "evidence",
+  "schema_version": "echo-caver-mechanics-smoke-v1",
+  "status": "passed",
+  "trainable_contract": {
+    "target_module_count": 10,
+    "total_parameters": 8327619987,
+    "trainable_fraction": 0.0002852771864840859,
+    "trainable_parameter_names": [
+      "base_model.model.model.language_model.layers.19.self_attn.o_proj.lora_A.default.weight",
+      "base_model.model.model.language_model.layers.19.self_attn.o_proj.lora_B.default.weight",
+      "base_model.model.model.language_model.layers.19.mlp.down_proj.lora_A.default.weight",
+      "base_model.model.model.language_model.layers.19.mlp.down_proj.lora_B.default.weight",
+      "base_model.model.model.language_model.layers.21.self_attn.o_proj.lora_A.default.weight",
+      "base_model.model.model.language_model.layers.21.self_attn.o_proj.lora_B.default.weight",
+      "base_model.model.model.language_model.layers.21.mlp.down_proj.lora_A.default.weight",
+      "base_model.model.model.language_model.layers.21.mlp.down_proj.lora_B.default.weight",
+      "base_model.model.model.language_model.layers.23.self_attn.o_proj.lora_A.default.weight",
+      "base_model.model.model.language_model.layers.23.self_attn.o_proj.lora_B.default.weight",
+      "base_model.model.model.language_model.layers.23.mlp.down_proj.lora_A.default.weight",
+      "base_model.model.model.language_model.layers.23.mlp.down_proj.lora_B.default.weight",
+      "base_model.model.model.language_model.layers.25.self_attn.o_proj.lora_A.default.weight",
+      "base_model.model.model.language_model.layers.25.self_attn.o_proj.lora_B.default.weight",
+      "base_model.model.model.language_model.layers.25.mlp.down_proj.lora_A.default.weight",
+      "base_model.model.model.language_model.layers.25.mlp.down_proj.lora_B.default.weight",
+      "base_model.model.model.language_model.layers.27.self_attn.o_proj.lora_A.default.weight",
+      "base_model.model.model.language_model.layers.27.self_attn.o_proj.lora_B.default.weight",
+      "base_model.model.model.language_model.layers.27.mlp.down_proj.lora_A.default.weight",
+      "base_model.model.model.language_model.layers.27.mlp.down_proj.lora_B.default.weight"
+    ],
+    "trainable_parameters": 2375680
+  },
+  "zero_init_exact_identity_max_abs": 0.0
+}

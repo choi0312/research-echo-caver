@@ -1,0 +1,106 @@
+{
+  "schema_version": "echo-caver-full-mmad-cross-pod-ledger-v1",
+  "status": "COMPLETE",
+  "method": "ECHO-CAVER-v1",
+  "claim": {
+    "scope": "Full MMAD 39,670-row census",
+    "score_contract": "mean of 28 source-by-task cells; each AD cell is label-balanced; all other cells use accuracy; strict exact-answer parser; invalid outputs are incorrect",
+    "clean_generalization_claim": false,
+    "caveat": "The full census contains benchmark-targeted/training-overlap components. The separate 5,600-row component-disjoint clean panel remains the generalization check."
+  },
+  "coverage": {
+    "rows": 39670,
+    "shards": 8,
+    "full_manifest_ids": 39670,
+    "joined_result_ids": 39670,
+    "disjoint_exact_cover": true,
+    "query_reference_connected_components": 3012
+  },
+  "manifest": {
+    "path": "research/manifests/m1_full_eval_v1/full.jsonl",
+    "sha256": "61a266302585230610ad58876e76e073ed04f7dccb31c9c61daeaf44a81d4693"
+  },
+  "model": {
+    "adapter_identity_sha256": "ab4d4389c0f163068e0b0d082d07cb653db14b89accca50c4e2a66c579b9071d",
+    "echo_adapter_weights_sha256": "21623bfafc3d329128e2753a5600a9197088ef527deeb44687ea0eacd89f4bb9",
+    "freb_adapter_weights_sha256": "ac3233dbee2de9dd1aaea4acede275ddc2d7a322427795717d9232291e03b0ed",
+    "loaded_adapter_parameter_count": 33077651,
+    "normalized_inference_contract_sha256": "032c460ef670337509502b9cc22f51b85e699da540850ad098313298ec36abd9"
+  },
+  "metrics": {
+    "mmad_overall_percent": 82.41684704909915,
+    "non_ad_six_task_macro_percent": 85.18246453101058,
+    "ad_balanced_accuracy_percent": 65.64753019545126,
+    "ad_tnr_percent": 48.586355255070685,
+    "ad_tpr_percent": 82.70870513583185,
+    "itt_accuracy_percent": 81.65112175447441,
+    "valid_only_accuracy_percent": 81.74384858044164,
+    "valid_rate_percent": 99.88656415427275,
+    "correct": 32391,
+    "invalid": 45,
+    "per_task_percent": {
+      "Anomaly Detection": 65.8231421576306,
+      "Defect Analysis": 89.60935322663423,
+      "Defect Classification": 76.76982312316668,
+      "Defect Description": 86.15558127939337,
+      "Defect Localization": 75.35312259719432,
+      "Object Analysis": 88.05213652888112,
+      "Object Classification": 95.15477043079363
+    }
+  },
+  "descriptive_freb_full_comparison": {
+    "paired_test": false,
+    "reason": "The archived FREB result uses the same 39,670-row population and scoring rule, but its frozen manifest serialization has a different SHA-256 and raw paired predictions are not redistributed.",
+    "freb_strict_overall_percent": 81.89885195255319,
+    "echo_minus_freb_overall_points": 0.5179950965459645,
+    "freb_analysis_path": "external/FREB-CAVER/results/full_mmad_analysis.json",
+    "freb_analysis_sha256": "8918599bd31e375eee8ef99448194a03727924ccf661f95dfc606d60cc5f6c45",
+    "freb_manifest_sha256": "01239440d51538450d50ccbc73866fd3685b0dfd106198921df44cf9ced547e8"
+  },
+  "parallel_execution": {
+    "maximum_gpus": 4,
+    "gpu_type": "NVIDIA H200",
+    "pods": 2,
+    "workers": 8,
+    "inference_window_started_utc": "2026-08-24T10:12:51Z",
+    "inference_window_finished_utc": "2026-08-24T13:27:50Z",
+    "wall_seconds": 11699,
+    "wall_hms": "03:14:59",
+    "primary": {
+      "pod_id": "o0q21ioi0qo1rz",
+      "gpus": 2,
+      "used_shards": [0, 1, 2, 3],
+      "run_path": "research/runs/h200x2_echo_caver_full_mmad_8way_v1-20260824T101240Z-21190",
+      "wrapper_exit_code": 1,
+      "wrapper_exit_explanation": "Expected after the reassigned duplicate workers for shards 4-7 were terminated; completed shards 0-3 are checksum-verified and are the only primary outputs included."
+    },
+    "secondary": {
+      "pod_id": "0a80g3vgjrbjhp",
+      "gpus": 2,
+      "used_shards": [4, 5, 6, 7],
+      "run_path": "research/runs/h200x2_echo_caver_full_mmad_shards4to7_v1-20260824T104706Z-27107",
+      "wrapper_exit_code": 0,
+      "inference_wall_seconds": 9612,
+      "aggregate_samples_per_second": 2.063566375364128
+    },
+    "gpu_compute_stopped": true
+  },
+  "budget": {
+    "approved_cap_usd": 90.0,
+    "primary_lifetime_meter_hours_at_stop": 5.963889,
+    "primary_rate_usd_per_hour": 7.18,
+    "secondary_lifetime_meter_hours_at_stop": 3.161389,
+    "secondary_rate_usd_per_hour": 9.18,
+    "conservative_two_pod_lifetime_compute_usd": 71.84227404,
+    "note": "The conservative lifetime total includes ECHO work performed on the primary pod before this full evaluation; the incremental full-evaluation cost is therefore lower."
+  },
+  "artifacts": {
+    "analysis_path": "research/runs/echo_caver_full_mmad_v1-20260824/analyses/echo_full_mmad.json",
+    "analysis_sha256": "68195e2e0fe5e49108b0a48b8b602a1b6e1617611bad2c0b11330ebb6eb8e547",
+    "analysis_script_path": "research/scripts/analyze_sharded_adapter_eval.py",
+    "analysis_script_sha256": "5a9260990743ca695e6913c18560bfdbdf3d14dfa8ff4763858bb07068ac7324",
+    "deterministic_reanalysis_sha256_match": true,
+    "primary_terminal_sha256": "74886f80bd39eb12b99675b21ed4620aa15e3fffd97d27183f4274b1d8df1274",
+    "secondary_terminal_sha256": "952bc60d5f3230e271e9fe986d9ec930ca9f9957224999ce60d7d994e7c8bd2c"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": "echo-caver-private-research-archive-v1",
+  "title": "[Research] ECHO-CAVER: Evidence-Tangent Residual Readers for FREB-CAVER",
+  "version": "0.1.0",
+  "date": "2026-08-24",
+  "status": "research-candidate",
+  "repository": "https://github.com/choi0312/research-echo-caver",
+  "method": "ECHO-CAVER-v1",
+  "checkpoint": {
+    "path": "checkpoints/echo-caver-v1/adapter_model.safetensors",
+    "sha256": "21623bfafc3d329128e2753a5600a9197088ef527deeb44687ea0eacd89f4bb9"
+  },
+  "exact_inference_runner": {
+    "path": "src/run_judo_manifest.py",
+    "sha256": "f160385a1004749485f2dff060e121ac1bf280770d92914171d7613289b8d6a9"
+  },
+  "full_result": {
+    "rows": 39670,
+    "overall_percent": 82.41684704909915,
+    "analysis_sha256": "68195e2e0fe5e49108b0a48b8b602a1b6e1617611bad2c0b11330ebb6eb8e547"
+  },
+  "clean_result": {
+    "rows": 5600,
+    "overall_percent": 81.07579382281267,
+    "delta_points": 0.26977664813337965,
+    "mcnemar_p": 0.13321061920721333
+  },
+  "data_redistributed": false,
+  "raw_predictions_redistributed": false
+}
+

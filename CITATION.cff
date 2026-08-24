@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this archive, cite ECHO-CAVER together with JUDO, FREB-CAVER, and MMAD."
+title: "[Research] ECHO-CAVER: Evidence-Tangent Residual Readers for FREB-CAVER"
+type: software
+authors:
+  - family-names: Choi
+    given-names: JaeWoo
+repository-code: "https://github.com/choi0312/research-echo-caver"
+url: "https://github.com/choi0312/research-echo-caver"
+version: 0.1.0
+date-released: 2026-08-24
+keywords:
+  - industrial anomaly detection
+  - multimodal large language model
+  - parameter-efficient fine-tuning
+  - evidence-constrained LoRA
+  - JUDO
+  - FREB-CAVER
+  - MMAD
+

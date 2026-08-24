@@ -1,0 +1,309 @@
+{
+  "adapter": {
+    "adapter_identity_sha256": "ab4d4389c0f163068e0b0d082d07cb653db14b89accca50c4e2a66c579b9071d",
+    "adapter_path": "/workspace/MMAD/research/runpod/remote_runs/h200x2_echo_caver_screen320_v1-20260824T072025Z-17260/training/echo/adapter",
+    "loaded_adapter_parameter_count": 33077651,
+    "normalized_inference_contract_sha256": "032c460ef670337509502b9cc22f51b85e699da540850ad098313298ec36abd9"
+  },
+  "analysis_schema_version": "strict-sharded-single-adapter-analysis-v1",
+  "answer_policy": {
+    "invalid_scoring": "incorrect under ITT; semantic AD decision is null, never normal",
+    "parser": "exactly one case-sensitive <answer>X</answer> tag; X must be in options",
+    "prediction_source": "completion only; stored prediction fields ignored"
+  },
+  "component_cluster_reason": null,
+  "component_clusters": 3012,
+  "coverage": {
+    "disjoint_exact_cover": true,
+    "full_manifest_ids": 39670,
+    "joined_result_ids": 39670,
+    "shards": 8
+  },
+  "full_manifest": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/manifests/m1_full_eval_v1/full.jsonl",
+  "full_manifest_sha256": "61a266302585230610ad58876e76e073ed04f7dccb31c9c61daeaf44a81d4693",
+  "metrics": {
+    "ad_balanced_accuracy": 0.6564753019545126,
+    "ad_tnr": 0.48586355255070685,
+    "ad_tpr": 0.8270870513583185,
+    "correct": 32391,
+    "invalid": 45,
+    "invalid_reasons": {
+      "missing_or_malformed_exact_answer_tag": 45
+    },
+    "itt_accuracy": 0.8165112175447441,
+    "mmad_overall_macro": 0.8241684704909915,
+    "non_ad_six_task_macro": 0.8518246453101058,
+    "per_source_task": {
+      "GoodsAD::Anomaly Detection": 0.5888121346794841,
+      "GoodsAD::Defect Analysis": 0.9191780821917809,
+      "GoodsAD::Defect Classification": 0.7223493516399695,
+      "GoodsAD::Defect Description": 0.8507126781695424,
+      "GoodsAD::Defect Localization": 0.7622841965471447,
+      "GoodsAD::Object Analysis": 0.8547668547668548,
+      "GoodsAD::Object Classification": 0.9298100743187449,
+      "MVTec-AD::Anomaly Detection": 0.8100142082829027,
+      "MVTec-AD::Defect Analysis": 0.946058091286307,
+      "MVTec-AD::Defect Classification": 0.8141078838174274,
+      "MVTec-AD::Defect Description": 0.921681780708986,
+      "MVTec-AD::Defect Localization": 0.8801341156747695,
+      "MVTec-AD::Object Analysis": 0.9340175953079178,
+      "MVTec-AD::Object Classification": 0.9956989247311828,
+      "MVTec-LOCO::Anomaly Detection": 0.511747913921827,
+      "MVTec-LOCO::Defect Analysis": 0.8438155136268344,
+      "MVTec-LOCO::Defect Classification": 0.7637474541751528,
+      "MVTec-LOCO::Defect Description": 0.8234086242299795,
+      "MVTec-LOCO::Defect Localization": 0.6415478615071283,
+      "MVTec-LOCO::Object Analysis": 0.8644485520640789,
+      "MVTec-LOCO::Object Classification": 0.9448529411764706,
+      "VisA::Anomaly Detection": 0.7223514294210102,
+      "VisA::Defect Analysis": 0.8753224419604472,
+      "VisA::Defect Classification": 0.7705882352941177,
+      "VisA::Defect Description": 0.8504201680672269,
+      "VisA::Defect Localization": 0.7301587301587301,
+      "VisA::Object Analysis": 0.8688524590163934,
+      "VisA::Object Classification": 0.9358288770053476
+    },
+    "per_task_macro": {
+      "Anomaly Detection": 0.658231421576306,
+      "Defect Analysis": 0.8960935322663423,
+      "Defect Classification": 0.7676982312316668,
+      "Defect Description": 0.8615558127939337,
+      "Defect Localization": 0.7535312259719432,
+      "Object Analysis": 0.8805213652888112,
+      "Object Classification": 0.9515477043079363
+    },
+    "rows": 39670,
+    "valid_only_accuracy": 0.8174384858044164,
+    "valid_rate": 0.9988656415427275
+  },
+  "rows": 39670,
+  "scope": "full-7-task",
+  "shard_receipts": [
+    {
+      "index": 1,
+      "inference_contract_sha256": "37135be6e7cf5ffab07de8e8b30576ea4c6ef4992a133e29bd764066469550ba",
+      "manifest": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/manifests/m1_full_eval_v1/shards8/part-00-of-08.jsonl",
+      "manifest_sha256": "0ede0b70020f9cbff157fdf5be9d542f882e4b304747a798ef227a3cfd899f28",
+      "native_runtime_attestation": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/runs/h200x2_echo_caver_full_mmad_8way_v1-20260824T101240Z-21190/results/part-00-of-08.jsonl.native_adapter_runtime.json",
+      "native_runtime_attestation_sha256": "753706f09f03ccf7b71811f55c31839c84d2a98a17dd6b24e0a1b137836e5206",
+      "result": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/runs/h200x2_echo_caver_full_mmad_8way_v1-20260824T101240Z-21190/results/part-00-of-08.jsonl",
+      "result_sha256": "30c9a745cda068e80fb75af55665a041359121fc3d3459f13699ddfee09c3de6",
+      "rows": 4958
+    },
+    {
+      "index": 2,
+      "inference_contract_sha256": "dc015629b569b4ac49f3db682d24103875c672d9cd6bc0c902046b9b9ee8d590",
+      "manifest": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/manifests/m1_full_eval_v1/shards8/part-01-of-08.jsonl",
+      "manifest_sha256": "75cec85789da9d77e4f04b9aebcf592f076ab97236547c10dda18a62bd99aef2",
+      "native_runtime_attestation": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/runs/h200x2_echo_caver_full_mmad_8way_v1-20260824T101240Z-21190/results/part-01-of-08.jsonl.native_adapter_runtime.json",
+      "native_runtime_attestation_sha256": "753706f09f03ccf7b71811f55c31839c84d2a98a17dd6b24e0a1b137836e5206",
+      "result": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/runs/h200x2_echo_caver_full_mmad_8way_v1-20260824T101240Z-21190/results/part-01-of-08.jsonl",
+      "result_sha256": "4e76a5a6fc761555404d21af46062c718081175d8f9961fbf9f15b69ed3aa5e3",
+      "rows": 4959
+    },
+    {
+      "index": 3,
+      "inference_contract_sha256": "6ba6603ea168972f98ae735591b11bcb8b942e4d005a50309469819b27da5cc8",
+      "manifest": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/manifests/m1_full_eval_v1/shards8/part-02-of-08.jsonl",
+      "manifest_sha256": "3120a31a721748631585afcef215a63fc4d6de08a643008b75dbf3c1b204525a",
+      "native_runtime_attestation": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/runs/h200x2_echo_caver_full_mmad_8way_v1-20260824T101240Z-21190/results/part-02-of-08.jsonl.native_adapter_runtime.json",
+      "native_runtime_attestation_sha256": "753706f09f03ccf7b71811f55c31839c84d2a98a17dd6b24e0a1b137836e5206",
+      "result": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/runs/h200x2_echo_caver_full_mmad_8way_v1-20260824T101240Z-21190/results/part-02-of-08.jsonl",
+      "result_sha256": "e98ac70cab34891c67ad6acb024381fd57959d6fe44c22ba993c24f4750d5b3f",
+      "rows": 4959
+    },
+    {
+      "index": 4,
+      "inference_contract_sha256": "48ac29c85ce7f9b415a400ef27a8be146c2ddcf2e0e5a65574920270a8c5d1d6",
+      "manifest": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/manifests/m1_full_eval_v1/shards8/part-03-of-08.jsonl",
+      "manifest_sha256": "71b4cf0b9bf917348c6d10a559c084feae0d89a57f78555d25a3f753839fae40",
+      "native_runtime_attestation": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/runs/h200x2_echo_caver_full_mmad_8way_v1-20260824T101240Z-21190/results/part-03-of-08.jsonl.native_adapter_runtime.json",
+      "native_runtime_attestation_sha256": "753706f09f03ccf7b71811f55c31839c84d2a98a17dd6b24e0a1b137836e5206",
+      "result": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/runs/h200x2_echo_caver_full_mmad_8way_v1-20260824T101240Z-21190/results/part-03-of-08.jsonl",
+      "result_sha256": "d19a05f06a9a51fb87d16bde71b2fc7d834506533a8eb3c6a42f0959ee62c190",
+      "rows": 4959
+    },
+    {
+      "index": 5,
+      "inference_contract_sha256": "858458fc67f9eb0ba2d3d40623ebce0c13f52fc55d08b077f5ed292ee727193e",
+      "manifest": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/manifests/m1_full_eval_v1/shards8/part-04-of-08.jsonl",
+      "manifest_sha256": "f9b6bd6038f8633e32ce417eb896c367fa8af0943793c817289ceed41a423a70",
+      "native_runtime_attestation": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/runs/h200x2_echo_caver_full_mmad_shards4to7_v1-20260824T104706Z-27107/results/part-04-of-08.jsonl.native_adapter_runtime.json",
+      "native_runtime_attestation_sha256": "753706f09f03ccf7b71811f55c31839c84d2a98a17dd6b24e0a1b137836e5206",
+      "result": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/runs/h200x2_echo_caver_full_mmad_shards4to7_v1-20260824T104706Z-27107/results/part-04-of-08.jsonl",
+      "result_sha256": "b72ec1e9f9cdec31b7ba5f7753c4ad2b362e12f3f9cfcbb0fe489e15019970bf",
+      "rows": 4958
+    },
+    {
+      "index": 6,
+      "inference_contract_sha256": "bad8c878f08f7024c087a7d743fe501d0f5541712545449f1fb63d7720978ba9",
+      "manifest": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/manifests/m1_full_eval_v1/shards8/part-05-of-08.jsonl",
+      "manifest_sha256": "fae8203939befecd69384a47a9831a94e181fe676a690280bd11791487dd7099",
+      "native_runtime_attestation": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/runs/h200x2_echo_caver_full_mmad_shards4to7_v1-20260824T104706Z-27107/results/part-05-of-08.jsonl.native_adapter_runtime.json",
+      "native_runtime_attestation_sha256": "753706f09f03ccf7b71811f55c31839c84d2a98a17dd6b24e0a1b137836e5206",
+      "result": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/runs/h200x2_echo_caver_full_mmad_shards4to7_v1-20260824T104706Z-27107/results/part-05-of-08.jsonl",
+      "result_sha256": "313ce8f1914cb7048b3fbb0c62839a89a27deac14128ff8ad175ed039d7bb58c",
+      "rows": 4959
+    },
+    {
+      "index": 7,
+      "inference_contract_sha256": "bec1cee37bbd841341df1ca744cb9f67d2a275ba4db4e971914188927623694d",
+      "manifest": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/manifests/m1_full_eval_v1/shards8/part-06-of-08.jsonl",
+      "manifest_sha256": "71ae79983374f3ce32a6b389e38d54be5454e98aec83907b67d20e583e0fa7fd",
+      "native_runtime_attestation": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/runs/h200x2_echo_caver_full_mmad_shards4to7_v1-20260824T104706Z-27107/results/part-06-of-08.jsonl.native_adapter_runtime.json",
+      "native_runtime_attestation_sha256": "753706f09f03ccf7b71811f55c31839c84d2a98a17dd6b24e0a1b137836e5206",
+      "result": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/runs/h200x2_echo_caver_full_mmad_shards4to7_v1-20260824T104706Z-27107/results/part-06-of-08.jsonl",
+      "result_sha256": "3bf5f39b19b91e005d88d5d42faede312ceec82cabaeb3ecc1847f6f5860edbe",
+      "rows": 4959
+    },
+    {
+      "index": 8,
+      "inference_contract_sha256": "7a0ade5953c34bc7f793d92aef5116ecae948464491611566e7615027b1fda69",
+      "manifest": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/manifests/m1_full_eval_v1/shards8/part-07-of-08.jsonl",
+      "manifest_sha256": "33aec0fd7828b384e1d9e931e810fbaffc7e98d5a2ec3eecc7fce4c037192424",
+      "native_runtime_attestation": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/runs/h200x2_echo_caver_full_mmad_shards4to7_v1-20260824T104706Z-27107/results/part-07-of-08.jsonl.native_adapter_runtime.json",
+      "native_runtime_attestation_sha256": "753706f09f03ccf7b71811f55c31839c84d2a98a17dd6b24e0a1b137836e5206",
+      "result": "/Users/owner/Documents/ChatGPT/MMAD 개인연구/research/runs/h200x2_echo_caver_full_mmad_shards4to7_v1-20260824T104706Z-27107/results/part-07-of-08.jsonl",
+      "result_sha256": "8f77192107eed02be8f19bfbc1d25443b4be7aabfd3f94cd2e28f1e3403b6361",
+      "rows": 4959
+    }
+  ],
+  "source_metrics": {
+    "GoodsAD": {
+      "ad_balanced_accuracy": 0.5888121346794841,
+      "ad_tnr": 0.4653543307086614,
+      "ad_tpr": 0.7122699386503067,
+      "correct": 10327,
+      "invalid": 32,
+      "invalid_reasons": {
+        "missing_or_malformed_exact_answer_tag": 32
+      },
+      "itt_accuracy": 0.7890433985330073,
+      "mmad_overall_macro": 0.8039876246162174,
+      "non_ad_six_task_macro": 0.8398502062723395,
+      "per_source_task": {
+        "GoodsAD::Anomaly Detection": 0.5888121346794841,
+        "GoodsAD::Defect Analysis": 0.9191780821917809,
+        "GoodsAD::Defect Classification": 0.7223493516399695,
+        "GoodsAD::Defect Description": 0.8507126781695424,
+        "GoodsAD::Defect Localization": 0.7622841965471447,
+        "GoodsAD::Object Analysis": 0.8547668547668548,
+        "GoodsAD::Object Classification": 0.9298100743187449
+      },
+      "per_task_macro": {
+        "Anomaly Detection": 0.5888121346794841,
+        "Defect Analysis": 0.9191780821917809,
+        "Defect Classification": 0.7223493516399695,
+        "Defect Description": 0.8507126781695424,
+        "Defect Localization": 0.7622841965471447,
+        "Object Analysis": 0.8547668547668548,
+        "Object Classification": 0.9298100743187449
+      },
+      "rows": 13088,
+      "valid_only_accuracy": 0.7909773284313726,
+      "valid_rate": 0.9975550122249389
+    },
+    "MVTec-AD": {
+      "ad_balanced_accuracy": 0.8100142082829027,
+      "ad_tnr": 0.7032258064516129,
+      "ad_tpr": 0.9168026101141925,
+      "correct": 7477,
+      "invalid": 3,
+      "invalid_reasons": {
+        "missing_or_malformed_exact_answer_tag": 3
+      },
+      "itt_accuracy": 0.8969529750479847,
+      "mmad_overall_macro": 0.9002446571156418,
+      "non_ad_six_task_macro": 0.9152830652544317,
+      "per_source_task": {
+        "MVTec-AD::Anomaly Detection": 0.8100142082829027,
+        "MVTec-AD::Defect Analysis": 0.946058091286307,
+        "MVTec-AD::Defect Classification": 0.8141078838174274,
+        "MVTec-AD::Defect Description": 0.921681780708986,
+        "MVTec-AD::Defect Localization": 0.8801341156747695,
+        "MVTec-AD::Object Analysis": 0.9340175953079178,
+        "MVTec-AD::Object Classification": 0.9956989247311828
+      },
+      "per_task_macro": {
+        "Anomaly Detection": 0.8100142082829027,
+        "Defect Analysis": 0.946058091286307,
+        "Defect Classification": 0.8141078838174274,
+        "Defect Description": 0.921681780708986,
+        "Defect Localization": 0.8801341156747695,
+        "Object Analysis": 0.9340175953079178,
+        "Object Classification": 0.9956989247311828
+      },
+      "rows": 8336,
+      "valid_only_accuracy": 0.8972758910356414,
+      "valid_rate": 0.9996401151631478
+    },
+    "MVTec-LOCO": {
+      "ad_balanced_accuracy": 0.511747913921827,
+      "ad_tnr": 0.06086956521739131,
+      "ad_tpr": 0.9626262626262626,
+      "correct": 5892,
+      "invalid": 2,
+      "invalid_reasons": {
+        "missing_or_malformed_exact_answer_tag": 2
+      },
+      "itt_accuracy": 0.772822665267576,
+      "mmad_overall_macro": 0.7705098372430673,
+      "non_ad_six_task_macro": 0.813636824463274,
+      "per_source_task": {
+        "MVTec-LOCO::Anomaly Detection": 0.511747913921827,
+        "MVTec-LOCO::Defect Analysis": 0.8438155136268344,
+        "MVTec-LOCO::Defect Classification": 0.7637474541751528,
+        "MVTec-LOCO::Defect Description": 0.8234086242299795,
+        "MVTec-LOCO::Defect Localization": 0.6415478615071283,
+        "MVTec-LOCO::Object Analysis": 0.8644485520640789,
+        "MVTec-LOCO::Object Classification": 0.9448529411764706
+      },
+      "per_task_macro": {
+        "Anomaly Detection": 0.511747913921827,
+        "Defect Analysis": 0.8438155136268344,
+        "Defect Classification": 0.7637474541751528,
+        "Defect Description": 0.8234086242299795,
+        "Defect Localization": 0.6415478615071283,
+        "Object Analysis": 0.8644485520640789,
+        "Object Classification": 0.9448529411764706
+      },
+      "rows": 7624,
+      "valid_only_accuracy": 0.7730254526371031,
+      "valid_rate": 0.9997376705141658
+    },
+    "VisA": {
+      "ad_balanced_accuracy": 0.7223514294210102,
+      "ad_tnr": 0.6652542372881356,
+      "ad_tpr": 0.7794486215538847,
+      "correct": 8695,
+      "invalid": 8,
+      "invalid_reasons": {
+        "missing_or_malformed_exact_answer_tag": 8
+      },
+      "itt_accuracy": 0.8185840707964602,
+      "mmad_overall_macro": 0.821931762989039,
+      "non_ad_six_task_macro": 0.838528485250377,
+      "per_source_task": {
+        "VisA::Anomaly Detection": 0.7223514294210102,
+        "VisA::Defect Analysis": 0.8753224419604472,
+        "VisA::Defect Classification": 0.7705882352941177,
+        "VisA::Defect Description": 0.8504201680672269,
+        "VisA::Defect Localization": 0.7301587301587301,
+        "VisA::Object Analysis": 0.8688524590163934,
+        "VisA::Object Classification": 0.9358288770053476
+      },
+      "per_task_macro": {
+        "Anomaly Detection": 0.7223514294210102,
+        "Defect Analysis": 0.8753224419604472,
+        "Defect Classification": 0.7705882352941177,
+        "Defect Description": 0.8504201680672269,
+        "Defect Localization": 0.7301587301587301,
+        "Object Analysis": 0.8688524590163934,
+        "Object Classification": 0.9358288770053476
+      },
+      "rows": 10622,
+      "valid_only_accuracy": 0.8192010552100999,
+      "valid_rate": 0.9992468461683299
+    }
+  }
+}
