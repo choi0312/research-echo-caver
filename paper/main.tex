@@ -23,8 +23,10 @@ FREB evidence writers, and their output directions are constrained to the
 rank-32 left-singular span of the corresponding frozen writer. Gradient and
 post-optimizer projection preserve the constraint, while zero initialization
 provides exact FREB identity. On a Full-MMAD-compatible 39,670-question census,
-\method obtains 82.416847\% strict normalized 28-cell Overall, a descriptive
-+0.517995-point difference from an archived FREB run. On a 5,600-row
+\method obtains 82.416847\% strict normalized 28-cell Overall. This is
+descriptively +1.216847 points over JUDO's paper-reported 81.20\% and +0.126847
+points over AD-Copilot-Thinking's reported 82.29\% \cite{kang2026judo,jiang2026adcopilot}.
+These are cross-paper comparisons rather than paired re-evaluations. On a 5,600-row
 query-reference-component-disjoint paired panel, the point estimate improves
 by 0.2698 points, but the cluster-bootstrap 95\% interval
 [-0.0937, 0.6317] includes zero and exact McNemar $p=0.1332$. The archive thus
@@ -72,21 +74,14 @@ orthogonal-subspace continual learning \cite{wang2023olora}: ECHO learns
 inside the existing evidence span instead of reserving a new orthogonal task
 subspace.
 
-\begin{figure}[t]
+\begin{figure*}[t]
 \centering
-\begin{tikzpicture}[node distance=7mm and 9mm, every node/.style={font=\small}, box/.style={rounded corners,draw,align=center,minimum height=10mm,minimum width=25mm}]
-\node[box,draw=blue!65] (pair) {query + normal\\reference};
-\node[box,draw=blue!65,right=of pair] (judo) {frozen JUDO\\vision + decoder};
-\node[box,draw=frebamber,right=of judo] (writer) {frozen FREB writers\\18,20,22,24,26};
-\node[box,draw=echocyan,right=of writer] (reader) {ECHO readers\\19,21,23,25,27};
-\draw[-{Latex}] (pair)--(judo);
-\draw[-{Latex}] (judo)--(writer);
-\draw[-{Latex}] (writer)-- node[above,font=\scriptsize] {$U_{32}$ span} (reader);
-\node[draw=echocyan,dashed,fit=(reader),inner sep=4pt,label=below:{\scriptsize rank-16 LoRA on \texttt{o\_proj}, \texttt{down\_proj}}] {};
-\end{tikzpicture}
-\caption{ECHO aligns trainable readers to the geometry and causal placement of frozen FREB evidence writers.}
+\includegraphics[width=\textwidth]{../assets/echo_caver_architecture.png}
+\caption{ECHO-CAVER architecture. Frozen JUDO and FREB components are separated
+from trainable evidence-tangent readers. Each reader is placed one block after
+its paired writer and constrained to the writer's rank-32 output span.}
 \label{fig:architecture}
-\end{figure}
+\end{figure*}
 
 \subsection{Objective}
 Training pairs each question with a semantic option permutation. For candidate
@@ -118,29 +113,29 @@ exact paired McNemar test and 50,000-replicate component-cluster bootstrap.
 \section{Results}
 \begin{table}[t]
 \centering
-\caption{Full-MMAD-compatible strict task scores. Deltas are descriptive.}
-\begin{tabular}{lrrr}
+\caption{MMAD standard 1-shot comparison. JUDO and AD-Copilot values are
+paper-reported; ECHO is the strict 39,670-row census in this archive.}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrrrr}
 \toprule
-Task & FREB & ECHO & $\Delta$ \\
+Model & AD & DC & DL & DD & DA & OC & OA & Overall \\
 \midrule
-Anomaly Detection & 65.3976 & 65.8231 & +0.4256 \\
-Defect Analysis & 89.7165 & 89.6094 & -0.1072 \\
-Defect Classification & 75.2367 & 76.7698 & +1.5331 \\
-Defect Description & 85.0844 & 86.1556 & +1.0712 \\
-Defect Localization & 74.1183 & 75.3531 & +1.2348 \\
-Object Analysis & 88.2090 & 88.0521 & -0.1569 \\
-Object Classification & 95.5294 & 95.1548 & -0.3746 \\
-\midrule
-Overall & 81.8989 & \textbf{82.4168} & \textbf{+0.5180} \\
+JUDO \cite{kang2026judo} & 65.04 & 74.74 & 73.01 & 84.56 & 89.41 & 94.04 & 87.58 & 81.20 \\
+AD-Copilot \cite{jiang2026adcopilot} & 73.64 & 67.89 & 64.08 & 80.60 & 85.91 & 91.06 & 87.78 & 78.71 \\
+AD-Copilot-Thinking \cite{jiang2026adcopilot} & \textbf{73.95} & 74.29 & \textbf{76.40} & 84.92 & 86.93 & 91.86 & 87.67 & 82.29 \\
+\textbf{ECHO-CAVER v1} & 65.8231 & \textbf{76.7698} & 75.3531 & \textbf{86.1556} & \textbf{89.6094} & \textbf{95.1548} & \textbf{88.0521} & \textbf{82.4168} \\
 \bottomrule
 \end{tabular}
+}
 \label{tab:full}
 \end{table}
 
 The full run records 32,391/39,670 correct generations, 85.1825\% non-AD
 macro, 65.6475\% pooled AD balanced accuracy, and 99.8866\% strict answer
-validity. Gains concentrate in Defect Classification, Description, and
-Localization; Object Classification regresses.
+validity. ECHO is numerically +1.216847 points over JUDO and +0.126847 points
+over AD-Copilot-Thinking in Overall. External paper rows were not re-scored
+with ECHO's exact parser, so these are descriptive cross-paper deltas and not
+paired significance estimates.
 
 \begin{table}[t]
 \centering
@@ -165,9 +160,10 @@ $p=0.1332$; the cluster-bootstrap Overall delta interval is
 \section{Analysis and limitations}
 The full score crosses the archive's 82\% candidate threshold, but it is not a
 clean generalization estimate because benchmark-targeted/training-overlap
-components are present. The archived full FREB manifest serializes differently
-and row-level predictions are unavailable, so the full delta is not a paired
-test. The clean panel remains primary evidence for generalization.
+components are present. JUDO and AD-Copilot use the same task semantics and
+standard 1-shot setting, but parser, checkpoint, preprocessing, manifest
+cardinality, and aggregation details may differ. The clean panel remains
+primary evidence for architecture-level generalization.
 
 ECHO changes reasoning tokens on 1,349/5,600 clean examples, showing that the
 evidence-span constraint does not guarantee answer-stage locality. Forty-five
@@ -192,4 +188,3 @@ explicit claim boundaries is the central outcome of this archive.
 \bibliographystyle{plain}
 \bibliography{references}
 \end{document}
-

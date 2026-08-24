@@ -113,21 +113,17 @@ stored prediction field is trusted over the generated completion.
 | raw ITT accuracy | 81.651122% (32,391/39,670) |
 | strict-format validity | 99.886564% (45 invalid) |
 
-| Task | ECHO-CAVER v1 | Archived FREB strict result | Descriptive delta |
-|---|---:|---:|---:|
-| Anomaly Detection | 65.823142 | 65.397576 | +0.425566 |
-| Defect Analysis | 89.609353 | 89.716549 | -0.107196 |
-| Defect Classification | 76.769823 | 75.236682 | +1.533142 |
-| Defect Description | 86.155581 | 85.084414 | +1.071167 |
-| Defect Localization | 75.353123 | 74.118318 | +1.234805 |
-| Object Analysis | 88.052137 | 88.209034 | -0.156897 |
-| Object Classification | 95.154770 | 95.529390 | -0.374620 |
-| **Overall** | **82.416847** | **81.898852** | **+0.517995** |
+| Model | AD | DC | DL | DD | DA | OC | OA | Overall |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| JUDO (Table 1) | 65.04 | 74.74 | 73.01 | 84.56 | 89.41 | 94.04 | 87.58 | 81.20 |
+| AD-Copilot (Table II) | 73.64 | 67.89 | 64.08 | 80.60 | 85.91 | 91.06 | 87.78 | 78.71 |
+| AD-Copilot-Thinking (Table II) | 73.95 | 74.29 | 76.40 | 84.92 | 86.93 | 91.86 | 87.67 | 82.29 |
+| **ECHO-CAVER v1** | **65.823142** | **76.769823** | **75.353123** | **86.155581** | **89.609353** | **95.154770** | **88.052137** | **82.416847** |
 
-The FREB comparison uses the same 39,670-row population and the same strict
-cell-normalized score formula, but is descriptive rather than a paired test:
-the archived FREB result's manifest serialization has a different SHA-256 and
-its row-level predictions are not redistributed.  The Full-MMAD score also is
+ECHO is descriptively +1.216847 points above JUDO and +0.126847 points above
+AD-Copilot-Thinking in Overall. The external rows are paper-reported standard
+1-shot results and were not re-scored with ECHO's strict exact-tag analyzer;
+the comparison is cross-paper, not paired. The Full-MMAD score also is
 not a clean-generalization estimate because benchmark-targeted/training-overlap
 components are present.  The component-disjoint 5,600-row panel above remains
 the relevant clean check and did not cross 82% or conventional significance.

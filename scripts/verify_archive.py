@@ -43,6 +43,7 @@ def main() -> None:
     ledger = json.loads((ROOT / "results/full_run_ledger.json").read_text())
     clean = json.loads((ROOT / "results/clean_panel_analysis.json").read_text())
     metadata = json.loads((ROOT / "metadata/archive.json").read_text())
+    comparison = json.loads((ROOT / "results/paper_reported_comparison.json").read_text())
 
     coverage = full["coverage"]
     require(coverage["disjoint_exact_cover"] is True, "full cover is not exact")
@@ -78,6 +79,14 @@ def main() -> None:
     require(abs(metadata["full_result"]["overall_percent"]
                 - 100 * metrics["mmad_overall_macro"]) < 1e-12,
             "metadata score drift")
+
+    echo_scores = comparison["models"]["ECHO-CAVER-v1"]["scores_percent"]
+    require(abs(echo_scores[-1] - 100 * metrics["mmad_overall_macro"]) < 1e-6,
+            "paper comparison ECHO Overall drift")
+    require(comparison["models"]["JUDO"]["scores_percent"][-1] == 81.20,
+            "JUDO paper score drift")
+    require(comparison["models"]["AD-Copilot-Thinking"]["scores_percent"][-1] == 82.29,
+            "AD-Copilot-Thinking paper score drift")
 
     manifest_path = ROOT / "ARCHIVE_MANIFEST.sha256"
     require(manifest_path.is_file(), "missing ARCHIVE_MANIFEST.sha256")

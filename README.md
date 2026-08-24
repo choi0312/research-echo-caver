@@ -12,29 +12,34 @@ are constrained to the rank-32 singular span of the corresponding frozen FREB
 writer. The resulting system remains one end-to-end checkpoint/runtime: no
 router, threshold, ensemble, crop policy, or post-hoc answer correction is used.
 
-![ECHO-CAVER architecture](assets/echo_caver_architecture.svg)
+![ECHO-CAVER architecture](assets/echo_caver_architecture.png)
 
 ## Result at a glance
 
-| Evaluation | FREB-CAVER | ECHO-CAVER | Delta | Interpretation |
-|---|---:|---:|---:|---|
-| 5,600-row component-disjoint clean panel | 80.8060 | 81.0758 | +0.2698 | positive, not significant |
-| Full MMAD-compatible census, 39,670 QA | 81.8989 | **82.4168** | **+0.5180** | descriptive comparison |
+| Model | AD | DC | DL | DD | DA | OC | OA | Overall |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| [JUDO (paper)](https://arxiv.org/abs/2605.20284) | 65.04 | 74.74 | 73.01 | 84.56 | 89.41 | 94.04 | 87.58 | 81.20 |
+| [AD-Copilot (paper)](https://arxiv.org/abs/2603.13779) | 73.64 | 67.89 | 64.08 | 80.60 | 85.91 | 91.06 | 87.78 | 78.71 |
+| [AD-Copilot-Thinking (paper)](https://arxiv.org/abs/2603.13779) | **73.95** | 74.29 | **76.40** | 84.92 | 86.93 | 91.86 | 87.67 | 82.29 |
+| **ECHO-CAVER v1 (this archive)** | 65.8231 | **76.7698** | 75.3531 | **86.1556** | **89.6094** | **95.1548** | **88.0521** | **82.4168** |
 
-On the clean paired panel, the component-cluster 95% confidence interval for
-the Overall delta is `[-0.0937, +0.6317]` points and exact McNemar
-`p=0.13321`. On the full census, the strict normalized 28-cell score is
-**82.416847%**, with 32,391/39,670 correct generations and 99.886564% exact
-answer-format validity.
+ECHO is numerically **+1.2168 points over JUDO** and **+0.1268 points over
+AD-Copilot-Thinking** in Overall. JUDO and AD-Copilot values are their
+paper-reported standard 1-shot results; ECHO is this archive's strict
+39,670-row, normalized 28-cell census. Because the external rows were not
+re-scored with ECHO's exact parser, these are descriptive cross-paper
+comparisons, not paired significance estimates.
+
+As a separate internal validation, the 5,600-row component-disjoint paired
+panel compares ECHO with its frozen FREB parent: 81.0758 versus 80.8060
+(+0.2698 points), with component-cluster 95% CI `[-0.0937, +0.6317]` and exact
+McNemar `p=0.13321`. The clean result is positive but not significant.
 
 The full-census result is not an independent generalization estimate. It
-contains benchmark-targeted/training-overlap components, while the archived
-FREB comparison lacks redistributable row-level predictions. The clean panel
-is therefore the stronger generalization check, and it does not establish a
+contains benchmark-targeted/training-overlap components. The clean panel is
+therefore the stronger generalization check, and it does not establish a
 statistically conclusive gain. See [CLAIMS.md](CLAIMS.md) before citing a
 number.
-
-![Task deltas](assets/task_deltas.svg)
 
 ## Core contribution
 

@@ -1,0 +1,45 @@
+{
+  "schema_version": "mmad-paper-comparison-v1",
+  "benchmark_setting": "MMAD standard 1-shot, seven-task average",
+  "task_order": [
+    "Anomaly Discrimination",
+    "Defect Classification",
+    "Defect Localization",
+    "Defect Description",
+    "Defect Analysis",
+    "Object Classification",
+    "Object Analysis",
+    "Overall"
+  ],
+  "models": {
+    "JUDO": {
+      "scores_percent": [65.04, 74.74, 73.01, 84.56, 89.41, 94.04, 87.58, 81.20],
+      "source": "JUDO Table 1",
+      "paper": "https://arxiv.org/abs/2605.20284",
+      "paper_status": "ICLR 2026"
+    },
+    "AD-Copilot": {
+      "scores_percent": [73.64, 67.89, 64.08, 80.60, 85.91, 91.06, 87.78, 78.71],
+      "source": "AD-Copilot Table II",
+      "paper": "https://arxiv.org/abs/2603.13779",
+      "variant": "non-thinking"
+    },
+    "AD-Copilot-Thinking": {
+      "scores_percent": [73.95, 74.29, 76.40, 84.92, 86.93, 91.86, 87.67, 82.29],
+      "source": "AD-Copilot Table II (dagger/Thinking)",
+      "paper": "https://arxiv.org/abs/2603.13779",
+      "variant": "thinking"
+    },
+    "ECHO-CAVER-v1": {
+      "scores_percent": [65.823142, 76.769823, 75.353123, 86.155581, 89.609353, 95.154770, 88.052137, 82.416847],
+      "source": "This archive: full_mmad_analysis.json",
+      "setting": "Full-MMAD-compatible 39,670-row census; strict exact-tag scoring; normalized 28 source-by-task cells"
+    }
+  },
+  "descriptive_deltas_points": {
+    "ECHO-CAVER-v1_minus_JUDO": [0.783142, 2.029823, 2.343123, 1.595581, 0.199353, 1.114770, 0.472137, 1.216847],
+    "ECHO-CAVER-v1_minus_AD-Copilot-Thinking": [-8.126858, 2.479823, -1.046877, 1.235581, 2.679353, 3.294770, 0.382137, 0.126847]
+  },
+  "comparability_note": "JUDO and AD-Copilot values are paper-reported standard 1-shot results, not re-scored from row-level predictions with this archive's strict analyzer. ECHO uses a 39,670-row JUDO-compatible census and a normalized 28-cell score. The task semantics and 1-shot setting align, but parser, checkpoint, preprocessing, manifest cardinality, and aggregation details may differ. Cross-paper deltas are descriptive and are not paired significance estimates.",
+  "verified_from_primary_pdf_tables_on": "2026-08-24"
+}

@@ -16,6 +16,7 @@ from reportlab.lib.units import inch, mm
 from reportlab.platypus import (
     BaseDocTemplate,
     Frame,
+    Image as RLImage,
     KeepTogether,
     PageBreak,
     PageTemplate,
@@ -30,7 +31,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "paper/ECHO_CAVER_research_archive.pdf"
 FULL = json.loads((ROOT / "results/full_mmad_analysis.json").read_text())
 CLEAN = json.loads((ROOT / "results/clean_panel_analysis.json").read_text())
-FREB = json.loads((ROOT / "results/freb_full_reference.json").read_text())
+COMPARISON = json.loads((ROOT / "results/paper_reported_comparison.json").read_text())
 TRAIN = json.loads((ROOT / "artifacts/training/echo_training_summary.json").read_text())
 
 NAVY = HexColor("#0B172A")
@@ -189,68 +190,38 @@ def metric_table(rows, widths=None, align_right_from=1) -> Table:
     return table
 
 
-def architecture() -> Drawing:
+def architecture() -> RLImage:
+    figure = RLImage(str(ROOT / "assets/echo_caver_architecture.png"))
+    figure.drawWidth = 174 * mm
+    figure.drawHeight = figure.drawWidth * 1350 / 2400
+    return figure
+
+
+def overall_chart() -> Drawing:
+    rows = [
+        ("AD-Copilot", 78.71, AMBER),
+        ("JUDO", 81.20, BLUE),
+        ("AD-Copilot-Thinking", 82.29, HexColor("#7C3AED")),
+        ("ECHO-CAVER v1", 82.416847, CYAN),
+    ]
     d = Drawing(480, 165)
-    y, h = 79, 58
-    boxes = [
-        (8, 90, "Input pair", "query + normal ref", BLUE),
-        (112, 98, "Frozen JUDO", "vision + decoder", BLUE),
-        (224, 108, "Frozen FREB", "writers 18..26", AMBER),
-        (346, 126, "ECHO readers", "layers 19..27", CYAN),
-    ]
-    for x, w, title, subtitle, color in boxes:
-        d.add(Rect(x, y, w, h, rx=8, ry=8, fillColor=colors.white, strokeColor=color, strokeWidth=1.4))
-        d.add(String(x + w / 2, y + 35, title, textAnchor="middle", fontName="Helvetica-Bold", fontSize=9, fillColor=NAVY))
-        d.add(String(x + w / 2, y + 19, subtitle, textAnchor="middle", fontName="Helvetica", fontSize=7.5, fillColor=MUTED))
-    for x1, x2 in [(98, 112), (210, 224), (332, 346)]:
-        d.add(Line(x1, y + h / 2, x2 - 4, y + h / 2, strokeColor=HexColor("#7C93B6"), strokeWidth=1.4))
-        d.add(Polygon([x2 - 4, y + h / 2 + 3, x2, y + h / 2, x2 - 4, y + h / 2 - 3], fillColor=HexColor("#7C93B6"), strokeColor=None))
-    d.add(Rect(345, 18, 127, 38, rx=7, ry=7, fillColor=CYAN_LIGHT, strokeColor=CYAN, strokeWidth=1))
-    d.add(String(408.5, 40, "Evidence projection", textAnchor="middle", fontName="Helvetica-Bold", fontSize=8.5, fillColor=NAVY))
-    d.add(String(408.5, 26, "B <- U32 U32^T B", textAnchor="middle", fontName="Helvetica", fontSize=8, fillColor=CYAN))
-    d.add(Line(408.5, 56, 408.5, 79, strokeColor=CYAN, strokeWidth=1.3))
-    d.add(String(238, 4, "One runtime - no router, threshold, ensemble, crop, or post-hoc correction", textAnchor="middle", fontName="Helvetica", fontSize=7.5, fillColor=MUTED))
-    return d
-
-
-def delta_chart() -> Drawing:
-    e = FULL["metrics"]["per_task_macro"]
-    f = FREB["strict_parser_metrics"]["per_task_source_macro_accuracy"]
-    order = [
-        ("AD", "Anomaly Detection"),
-        ("DA", "Defect Analysis"),
-        ("DC", "Defect Classification"),
-        ("DD", "Defect Description"),
-        ("DL", "Defect Localization"),
-        ("OA", "Object Analysis"),
-        ("OC", "Object Classification"),
-    ]
-    d = Drawing(480, 210)
-    zero = 177
-    scale = 142
-    d.add(Line(zero, 16, zero, 194, strokeColor=HexColor("#64748B"), strokeWidth=1))
-    for i, (short, task) in enumerate(order):
-        y = 178 - i * 25
-        delta = 100 * (e[task] - f[task])
-        d.add(String(8, y + 3, short, fontName="Helvetica-Bold", fontSize=8, fillColor=NAVY))
-        d.add(String(31, y + 3, task, fontName="Helvetica", fontSize=7.5, fillColor=MUTED))
-        width = abs(delta) * scale
-        x = zero if delta >= 0 else zero - width
-        color = CYAN if delta >= 0 else ORANGE
-        d.add(Rect(x, y - 4, width, 12, rx=3, ry=3, fillColor=color, strokeColor=None))
-        label_x = x + width + 5 if delta >= 0 else x - 5
-        anchor = "start" if delta >= 0 else "end"
-        d.add(String(label_x, y - 1, f"{delta:+.3f}", textAnchor=anchor, fontName="Helvetica-Bold", fontSize=7.4, fillColor=color))
-    for value in (-0.5, 0.0, 0.5, 1.0, 1.5):
-        x = zero + value * scale
-        d.add(Line(x, 11, x, 15, strokeColor=GRID, strokeWidth=0.7))
-        d.add(String(x, 1, f"{value:+.1f}" if value else "0", textAnchor="middle", fontName="Helvetica", fontSize=6.5, fillColor=MUTED))
+    left, right = 150, 455
+    minimum, maximum = 78.0, 83.0
+    for i, (name, value, color) in enumerate(rows):
+        y = 134 - i * 32
+        d.add(String(6, y + 2, name, fontName="Helvetica-Bold", fontSize=8.2, fillColor=NAVY))
+        width = (value - minimum) / (maximum - minimum) * (right - left)
+        d.add(Rect(left, y - 4, width, 15, rx=4, ry=4, fillColor=color, strokeColor=None))
+        d.add(String(left + width + 6, y - 1, f"{value:.4f}" if name == "ECHO-CAVER v1" else f"{value:.2f}", fontName="Helvetica-Bold", fontSize=8, fillColor=color))
+    for value in (78, 79, 80, 81, 82, 83):
+        x = left + (value - minimum) / (maximum - minimum) * (right - left)
+        d.add(Line(x, 15, x, 22, strokeColor=GRID, strokeWidth=0.8))
+        d.add(String(x, 3, str(value), textAnchor="middle", fontName="Helvetica", fontSize=7, fillColor=MUTED))
     return d
 
 
 def story() -> list:
     m = FULL["metrics"]
-    fm = FREB["strict_parser_metrics"]
     cm = CLEAN["treatment_metrics"]
     cb = CLEAN["control_metrics"]
     delta = CLEAN["paired_delta_treatment_minus_control"]
@@ -264,8 +235,8 @@ def story() -> list:
         p("A private paper archive for model-native industrial anomaly reasoning", SUBTITLE),
         Spacer(1, 4 * mm),
         Table(
-            [[p("FULL MMAD-COMPATIBLE OVERALL", SMALL), p("CLEAN PAIRED SIGNAL", SMALL), p("TRAINABLE FRACTION", SMALL)],
-             [p(f"<b>{100*m['mmad_overall_macro']:.6f}%</b>", CALLOUT), p(f"<b>+{100*delta['mmad_overall_macro']:.4f} pt</b>", CALLOUT), p("<b>0.02853%</b>", CALLOUT)]],
+            [[p("FULL MMAD-COMPATIBLE OVERALL", SMALL), p("VS JUDO (PAPER)", SMALL), p("VS AD-COPILOT-THINKING", SMALL)],
+             [p(f"<b>{100*m['mmad_overall_macro']:.6f}%</b>", CALLOUT), p("<b>+1.216847 pt</b>", CALLOUT), p("<b>+0.126847 pt</b>", CALLOUT)]],
             colWidths=[56 * mm, 56 * mm, 56 * mm],
             style=TableStyle([
                 ("BACKGROUND", (0, 0), (-1, -1), PALE),
@@ -281,7 +252,7 @@ def story() -> list:
         Spacer(1, 7 * mm),
         p("Abstract", H1),
         p(
-            "FREB-CAVER inserts query-reference comparison evidence into a frozen JUDO multimodal reasoner, but the frozen downstream decoder may not optimally read the new state. ECHO-CAVER installs rank-16 residual readers immediately after five FREB writers and constrains their output directions to each writer's rank-32 left-singular span. Gradient and post-optimizer projection preserve the constraint; zero initialization gives exact FREB identity. The full 39,670-question census reaches <b>82.416847%</b>. A 5,600-row component-disjoint panel shows a positive but statistically inconclusive +0.2698-point signal. This archive therefore retains ECHO as a full-benchmark candidate without claiming confirmed clean generalization."
+            "FREB-CAVER inserts query-reference comparison evidence into a frozen JUDO multimodal reasoner, but the frozen downstream decoder may not optimally read the new state. ECHO-CAVER installs rank-16 residual readers immediately after five FREB writers and constrains their output directions to each writer's rank-32 left-singular span. Gradient and post-optimizer projection preserve the constraint; zero initialization gives exact FREB identity. The full 39,670-question census reaches <b>82.416847%</b>, numerically +1.216847 points over paper-reported JUDO and +0.126847 over AD-Copilot-Thinking. These are descriptive cross-paper differences. A 5,600-row component-disjoint panel shows a positive but statistically inconclusive +0.2698-point internal signal."
         ),
         Spacer(1, 3 * mm),
         p("JaeWoo Choi - 24 August 2026 - Version 0.1.0", SMALL),
@@ -294,7 +265,7 @@ def story() -> list:
         p("Contribution", H2),
         p("ECHO derives both placement and trainable geometry from the deployed FREB carrier. Readers sit immediately after the five evidence writers. Their LoRA-B outputs are restricted to the writers' dominant singular span, so adaptation can reinterpret established visual evidence without opening an unrestricted residual channel."),
         architecture(),
-        p("Figure 1. Frozen components are blue/amber; trainable evidence-tangent readers are cyan.", CAPTION),
+        p("Figure 1. Publication architecture view. Frozen JUDO/FREB components are separated from trainable evidence-tangent readers and their behavior-preserving objective.", CAPTION),
         p("Novelty boundary", H2),
         p("Ordinary LoRA can learn any low-rank output direction. O-LoRA-style continual learning separates tasks with orthogonal subspaces. ECHO makes the opposite geometric choice: it trains inside the existing evidence span, because the goal is to read a frozen multimodal carrier rather than isolate a new task."),
         p("The method is a single end-to-end runtime. It does not use an external router, score threshold, ensemble, crop policy, or post-hoc answer correction.", CALLOUT),
@@ -331,13 +302,18 @@ def story() -> list:
         PageBreak(),
     ]
 
-    task_order = ["Anomaly Detection", "Defect Analysis", "Defect Classification", "Defect Description", "Defect Localization", "Object Analysis", "Object Classification"]
-    full_rows = [["Task", "Archived FREB", "ECHO", "Delta"]]
-    for task in task_order:
-        fv = 100 * fm["per_task_source_macro_accuracy"][task]
-        ev = 100 * m["per_task_macro"][task]
-        full_rows.append([task, f"{fv:.4f}", f"{ev:.4f}", f"{ev-fv:+.4f}"])
-    full_rows.append(["Overall", f"{100*fm['normalized_28_cell_macro_accuracy']:.4f}", f"{100*m['mmad_overall_macro']:.4f}", f"{100*(m['mmad_overall_macro']-fm['normalized_28_cell_macro_accuracy']):+.4f}"])
+    task_labels = ["AD", "DC", "DL", "DD", "DA", "OC", "OA", "Overall"]
+    full_rows = [["Model", *task_labels]]
+    for model in ("JUDO", "AD-Copilot", "AD-Copilot-Thinking", "ECHO-CAVER-v1"):
+        values = COMPARISON["models"][model]["scores_percent"]
+        label = "ECHO-CAVER v1" if model == "ECHO-CAVER-v1" else model
+        full_rows.append([label, *[f"{value:.4f}" if model == "ECHO-CAVER-v1" else f"{value:.2f}" for value in values]])
+    comparison_table = metric_table(full_rows, widths=[42 * mm, *([15.75 * mm] * 8)])
+    comparison_table.setStyle(TableStyle([
+        ("BACKGROUND", (0, -1), (-1, -1), CYAN_LIGHT),
+        ("FONTNAME", (0, -1), (-1, -1), "Helvetica-Bold"),
+        ("TEXTCOLOR", (0, -1), (-1, -1), NAVY),
+    ]))
 
     items += [
         p("3. Evaluation and full-census result", H1),
@@ -345,10 +321,12 @@ def story() -> list:
         p("Overall is the unweighted mean of 28 source-by-task cells. Each Anomaly Detection cell uses balanced accuracy over normal and anomaly labels; all other cells use accuracy. A completion must contain exactly one case-sensitive answer tag with an option label. Invalid completions are incorrect."),
         p("Coverage", H2),
         p("Eight independently inferred shards cover exactly 39,670 frozen IDs with no duplicate or missing row. Every result uses the same adapter identity and normalized inference contract. Deterministic re-analysis reproduced the same SHA-256."),
-        metric_table(full_rows, widths=[74 * mm, 32 * mm, 32 * mm, 30 * mm]),
+        p("Paper-reported comparison", H2),
+        comparison_table,
         Spacer(1, 3 * mm),
-        delta_chart(),
-        p("Figure 2. Full-census task deltas. These are descriptive because the archived FREB row-level predictions are unavailable.", CAPTION),
+        overall_chart(),
+        p("Figure 2. Overall scores under each work's reported standard 1-shot protocol. Cross-paper differences are descriptive.", CAPTION),
+        p("ECHO is numerically <b>+1.216847 points</b> over JUDO and <b>+0.126847 points</b> over AD-Copilot-Thinking. The external rows were not re-scored with ECHO's strict exact-tag parser; parser, checkpoint, preprocessing, manifest cardinality, and aggregation details may differ.", SMALL),
         PageBreak(),
     ]
 
@@ -382,14 +360,14 @@ def story() -> list:
         p("Reasoning drift", H2),
         p("ECHO changes the generated thinking trace on 1,349/5,600 clean-panel examples. Among discordant decisions, 35/58 corrections and 30/42 regressions also change the trace. Evidence-span restriction therefore does not guarantee that adaptation is localized to the final answer state."),
         p("Format and task trade-offs", H2),
-        p("The full run contains 45 strict-format-invalid generations, versus nine in the archived FREB result. Full gains are concentrated in Defect Classification (+1.5331), Defect Localization (+1.2348), and Defect Description (+1.0712) points. Defect Analysis, Object Analysis, and Object Classification regress slightly. The clean-panel AD balanced score also decreases by 0.0662 points."),
+        p("The full run contains 45 strict-format-invalid generations. Relative to the paper-reported JUDO row, ECHO is numerically higher on all seven task columns. Relative to AD-Copilot-Thinking, ECHO is higher on DC, DD, DA, OC, and OA, but lower on AD and DL. The clean-panel AD balanced score also decreases by 0.0662 points versus the frozen FREB parent."),
         p("Supported claims", H2),
         metric_table([
             ["Supported", "Not supported"],
             ["82.416847% Full-MMAD-compatible census", "confirmed independent generalization gain"],
             ["single-runtime evidence-tangent LoRA", "state-of-the-art under a harmonized protocol"],
             ["positive clean-panel point estimate", "material solution to anomaly detection"],
-            ["exact checkpoint and code identities", "paired significance for the archived full FREB delta"],
+            ["descriptive +1.2168 vs JUDO", "paired significance vs JUDO or AD-Copilot"],
         ], widths=[84 * mm, 84 * mm], align_right_from=None),
         Spacer(1, 5 * mm),
         p("Prospective mechanism", H2),
@@ -426,7 +404,8 @@ def story() -> list:
         p("[2] X. Jiang et al. MMAD: The First-Ever Comprehensive Benchmark for Multimodal Large Language Models in Industrial Anomaly Detection. arXiv:2410.09453, 2024."),
         p("[3] E. J. Hu et al. LoRA: Low-Rank Adaptation of Large Language Models. ICLR 2022; arXiv:2106.09685."),
         p("[4] X. Wang et al. Orthogonal Subspace Learning for Language Model Continual Learning. arXiv:2310.14152, 2023."),
-        p("[5] FREB-CAVER research contributors. FREB-CAVER: Model-native causal visual-evidence binding for industrial anomaly reasoning. Software artifact v0.1.0, 2026."),
+        p("[5] X. Jiang et al. AD-Copilot: A Vision-Language Assistant for Industrial Anomaly Detection via Visual In-context Comparison. arXiv:2603.13779, 2026."),
+        p("[6] FREB-CAVER research contributors. FREB-CAVER: Model-native causal visual-evidence binding for industrial anomaly reasoning. Software artifact v0.1.0, 2026."),
         Spacer(1, 10 * mm),
         Table([[p("Archive status", CALLOUT), p("ECHO-CAVER v1 is retained as a full-benchmark research candidate. Further asset-disjoint replication is required before a generalization claim.", BODY)]], colWidths=[40 * mm, 128 * mm], style=TableStyle([("BACKGROUND", (0, 0), (-1, -1), PALE), ("BOX", (0, 0), (-1, -1), 0.8, GRID), ("VALIGN", (0, 0), (-1, -1), "TOP"), ("LEFTPADDING", (0, 0), (-1, -1), 7), ("RIGHTPADDING", (0, 0), (-1, -1), 7), ("TOPPADDING", (0, 0), (-1, -1), 7), ("BOTTOMPADDING", (0, 0), (-1, -1), 5)])),
     ]
@@ -441,4 +420,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

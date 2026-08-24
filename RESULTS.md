@@ -9,22 +9,23 @@ is valid only when its completion contains exactly one case-sensitive
 `<answer>X</answer>` tag whose label is present in the options. Invalid outputs
 are incorrect under intention-to-treat scoring.
 
-## Full MMAD-compatible census
+## Full MMAD paper comparison
 
 Eight disjoint shards cover exactly 39,670 frozen IDs. All result rows share
 one adapter identity and normalized inference contract. Aggregation was repeated
 and reproduced the same analysis SHA-256.
 
-| Task | Archived FREB strict | ECHO-CAVER | Delta (points) |
-|---|---:|---:|---:|
-| Anomaly Detection | 65.397576 | 65.823142 | +0.425566 |
-| Defect Analysis | 89.716549 | 89.609353 | -0.107196 |
-| Defect Classification | 75.236682 | 76.769823 | +1.533142 |
-| Defect Description | 85.084414 | 86.155581 | +1.071167 |
-| Defect Localization | 74.118318 | 75.353123 | +1.234805 |
-| Object Analysis | 88.209034 | 88.052137 | -0.156897 |
-| Object Classification | 95.529390 | 95.154770 | -0.374620 |
-| **Overall** | **81.898852** | **82.416847** | **+0.517995** |
+| Model | AD | DC | DL | DD | DA | OC | OA | Overall |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| JUDO, Table 1 | 65.04 | 74.74 | 73.01 | 84.56 | 89.41 | 94.04 | 87.58 | 81.20 |
+| AD-Copilot, Table II | 73.64 | 67.89 | 64.08 | 80.60 | 85.91 | 91.06 | 87.78 | 78.71 |
+| AD-Copilot-Thinking, Table II | **73.95** | 74.29 | **76.40** | 84.92 | 86.93 | 91.86 | 87.67 | 82.29 |
+| **ECHO-CAVER v1** | 65.8231 | **76.7698** | 75.3531 | **86.1556** | **89.6094** | **95.1548** | **88.0521** | **82.4168** |
+
+| Descriptive Overall comparison | Delta (points) |
+|---|---:|
+| ECHO minus JUDO | **+1.216847** |
+| ECHO minus AD-Copilot-Thinking | **+0.126847** |
 
 Additional ECHO metrics:
 
@@ -37,9 +38,13 @@ Additional ECHO metrics:
 | valid-only accuracy | 81.743849% |
 | strict answer validity | 99.886564% (45 invalid) |
 
-The archived FREB analysis uses the same 39,670-row population and score
-formula, but its serialized manifest SHA differs and its row-level predictions
-are unavailable. Task and Overall deltas are therefore descriptive.
+JUDO and AD-Copilot scores are the standard 1-shot values reported in their
+primary paper tables. They were not re-scored from row-level predictions with
+this archive's strict exact-tag parser. ECHO uses a 39,670-row JUDO-compatible
+census and an unweighted mean over 28 source-by-task cells. Task semantics and
+the 1-shot setting align, but parser, checkpoint, preprocessing, manifest
+cardinality, and aggregation details may differ. Cross-paper deltas are
+therefore descriptive and do not support paired significance claims.
 
 ## Source-by-task ECHO scores
 
@@ -79,4 +84,3 @@ four H200s across two pods and eight workers. The measured inference window was
 includes earlier ECHO work on the primary pod.
 
 Machine-readable evidence is under `results/` and `artifacts/training/`.
-

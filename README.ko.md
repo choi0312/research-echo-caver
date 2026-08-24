@@ -8,10 +8,17 @@ checkpoint로 전체 MMAD task를 추론합니다.
 
 ## 핵심 결과
 
-| 평가 | FREB-CAVER | ECHO-CAVER | 변화 |
-|---|---:|---:|---:|
-| 5,600 clean paired panel | 80.8060 | 81.0758 | +0.2698%p |
-| Full MMAD-compatible 39,670 QA | 81.8989 | **82.4168** | **+0.5180%p** |
+| 모델 | AD | DC | DL | DD | DA | OC | OA | Overall |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| JUDO (논문) | 65.04 | 74.74 | 73.01 | 84.56 | 89.41 | 94.04 | 87.58 | 81.20 |
+| AD-Copilot (논문) | 73.64 | 67.89 | 64.08 | 80.60 | 85.91 | 91.06 | 87.78 | 78.71 |
+| AD-Copilot-Thinking (논문) | **73.95** | 74.29 | **76.40** | 84.92 | 86.93 | 91.86 | 87.67 | 82.29 |
+| **ECHO-CAVER v1** | 65.8231 | **76.7698** | 75.3531 | **86.1556** | **89.6094** | **95.1548** | **88.0521** | **82.4168** |
+
+ECHO의 Overall은 JUDO 논문보다 **+1.2168%p**, AD-Copilot-Thinking
+논문보다 **+0.1268%p** 높습니다. 다만 외부 두 모델의 값은 각 논문의 standard
+1-shot 보고치이고 ECHO는 이 archive의 strict 39,670-row/28-cell 정규화
+점수이므로, 이는 paired significance가 아닌 기술적 cross-paper 비교입니다.
 
 Clean panel의 component-cluster 95% CI는 `[-0.0937, +0.6317]`%p이고
 McNemar `p=0.13321`이므로 통계적으로 확정적인 향상은 아닙니다. Full 결과는
@@ -33,4 +40,3 @@ benchmark-targeting 및 학습 중복 component가 포함된 성능 감사이며
 세부 방법은 [METHOD.md](METHOD.md), 실험은 [RESULTS.md](RESULTS.md), 재현은
 [REPRODUCIBILITY.md](REPRODUCIBILITY.md), 허용 가능한 주장 범위는
 [CLAIMS.md](CLAIMS.md)를 참고하십시오.
-

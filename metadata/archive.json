@@ -19,6 +19,14 @@
     "overall_percent": 82.41684704909915,
     "analysis_sha256": "68195e2e0fe5e49108b0a48b8b602a1b6e1617611bad2c0b11330ebb6eb8e547"
   },
+  "paper_reported_comparison": {
+    "judo_overall_percent": 81.2,
+    "ad_copilot_overall_percent": 78.71,
+    "ad_copilot_thinking_overall_percent": 82.29,
+    "echo_minus_judo_points": 1.21684704909915,
+    "echo_minus_ad_copilot_thinking_points": 0.12684704909915,
+    "comparison_type": "descriptive cross-paper; not paired"
+  },
   "clean_result": {
     "rows": 5600,
     "overall_percent": 81.07579382281267,
@@ -28,4 +36,3 @@
   "data_redistributed": false,
   "raw_predictions_redistributed": false
 }
-
