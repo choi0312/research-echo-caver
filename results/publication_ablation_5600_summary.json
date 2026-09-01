@@ -1,0 +1,96 @@
+{
+  "schema_version": "echo-caver-publication-ablation-public-summary-v1",
+  "scope": "same-contract component-controlled 5600-row MMAD seven-task panel",
+  "rows": 5600,
+  "manifest_sha256": "cedf23061dc8d95d255fbadd8975de9a7a45a597946b525d83a423f431ee5b33",
+  "inference_contract_sha256": "889b54c354cc99da1522548bde32241f04e8ac20f2bb0df3993cb8e8fced6f28",
+  "scoring": {
+    "metric": "normalized 28-cell MMAD Overall macro",
+    "invalid_policy": "incorrect under ITT; never coerced",
+    "parser": "exactly one case-sensitive <answer>X</answer> tag"
+  },
+  "bootstrap": {
+    "replicates": 50000,
+    "seed": 20260829,
+    "clusters": 2280,
+    "resampling_unit": "query-reference connected component",
+    "shared_draws_across_arms": true,
+    "near_duplicate_audit_complete": true
+  },
+  "arms": {
+    "judo": {
+      "overall_percent": 80.52228070869151,
+      "itt_accuracy_percent": 81.07142857142857
+    },
+    "freb": {
+      "overall_percent": 80.98153336204892,
+      "itt_accuracy_percent": 81.5
+    },
+    "reader_only": {
+      "overall_percent": 80.75878342706664,
+      "itt_accuracy_percent": 81.30357142857143
+    },
+    "echo_full": {
+      "overall_percent": 81.09565194426989,
+      "itt_accuracy_percent": 81.66071428571429
+    },
+    "ce_only": {
+      "overall_percent": 81.58206928438344,
+      "itt_accuracy_percent": 82.16071428571429
+    },
+    "ce_kl": {
+      "overall_percent": 81.09255164897131,
+      "itt_accuracy_percent": 81.625
+    },
+    "answer_only": {
+      "overall_percent": 81.29146278873919,
+      "itt_accuracy_percent": 81.83928571428571
+    },
+    "random_subspace": {
+      "overall_percent": 81.20441595571802,
+      "itt_accuracy_percent": 81.71428571428572
+    },
+    "unconstrained": {
+      "overall_percent": 81.03900658982921,
+      "itt_accuracy_percent": 81.57142857142857
+    }
+  },
+  "selected_paired_comparisons": {
+    "freb_minus_judo": {
+      "overall_delta_pp": 0.4592526533574115,
+      "component_bootstrap_ci95_pp": [0.10546509696003877, 0.8248457984665555],
+      "mcnemar_exact_two_sided_p": 0.02785088812566217
+    },
+    "echo_full_minus_judo": {
+      "overall_delta_pp": 0.5733712355783793,
+      "component_bootstrap_ci95_pp": [0.1099601258570776, 1.039768263640396],
+      "mcnemar_exact_two_sided_p": 0.01591992565241911
+    },
+    "ce_only_minus_judo": {
+      "overall_delta_pp": 1.0597885756919334,
+      "component_bootstrap_ci95_pp": [0.5242519445495028, 1.5947401544253365],
+      "mcnemar_exact_two_sided_p": 0.00009597270515150263
+    },
+    "echo_full_minus_freb": {
+      "overall_delta_pp": 0.11411858222096782,
+      "component_bootstrap_ci95_pp": [-0.26598714317064205, 0.4955140111835483],
+      "mcnemar_exact_two_sided_p": 0.45969138732555304
+    },
+    "echo_full_minus_ce_only": {
+      "overall_delta_pp": -0.4864173401135541,
+      "component_bootstrap_ci95_pp": [-0.8624707153891931, -0.11539673273139035],
+      "mcnemar_exact_two_sided_p": 0.010409209767128986
+    }
+  },
+  "writer_reader_interaction": {
+    "contrast": "(echo_full - freb) - (reader_only - judo)",
+    "overall_interaction_pp": -0.12238413615416333,
+    "component_bootstrap_ci95_pp": [-0.5685425875229933, 0.32518267691835965],
+    "probability_interaction_gt_zero": 0.29652
+  },
+  "interpretation": {
+    "ce_only": "Strongest arm on this panel; evidence-tangent geometry and placement are retained while auxiliary objectives are removed.",
+    "full_mmad_boundary": "This file contains no Full-MMAD result for the CE-only checkpoint.",
+    "completeness": "All nine evaluated arms are included to prevent selective ablation reporting."
+  }
+}
