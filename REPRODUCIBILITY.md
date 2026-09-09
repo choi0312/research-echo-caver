@@ -137,3 +137,21 @@ The original MMAD rows and free generations are intentionally not redistributed.
 Consequently this archive verifies the sealed aggregate, checkpoint, code, and
 score identities but does not synthesize a fake row-level rerun.
 
+## 8. Publication ablation
+
+The later nine-arm publication ablation is archived separately from the final
+ECHO-v1 checkpoint evaluation. Its portable aggregate is
+`results/publication_ablation_5600_summary.json`; the private cold-storage
+bundle additionally retains the frozen 5,600-row manifest and nine ordered
+result JSONLs.
+
+Before reanalysis, verify that every arm has exactly 5,600 unique sample IDs in
+manifest order, manifest SHA-256
+`cedf23061dc8d95d255fbadd8975de9a7a45a597946b525d83a423f431ee5b33`,
+and inference-contract SHA-256
+`889b54c354cc99da1522548bde32241f04e8ac20f2bb0df3993cb8e8fced6f28`.
+Use 50,000 component bootstrap replicates and seed `20260829`.
+
+Historical absolute paths inside receipts are provenance labels only. Replace
+filesystem paths at launch time without changing content hashes or the
+scientific contract.

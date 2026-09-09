@@ -84,3 +84,35 @@ four H200s across two pods and eight workers. The measured inference window was
 includes earlier ECHO work on the primary pod.
 
 Machine-readable evidence is under `results/` and `artifacts/training/`.
+
+## Publication ablation replication
+
+A later nine-arm 5,600-row run used one manifest, one inference contract, and
+50,000 shared query/reference-component bootstrap draws. It is a distinct
+checkpoint replication and must not be substituted for the released ECHO-v1
+full-census checkpoint.
+
+| Arm | Overall | non-AD macro | AD balanced accuracy |
+|---|---:|---:|---:|
+| JUDO | 80.5223 | 83.4167 | 62.6392 |
+| FREB | 80.9815 | 83.8750 | 63.1831 |
+| ECHO full objective | 81.0957 | 83.9792 | 63.3129 |
+| Answer-only | 81.2915 | 84.2500 | 63.0042 |
+| CE-only | **81.5821** | **84.6250** | 62.6098 |
+
+FREB versus JUDO is `+0.4593` points with component-bootstrap 95% CI
+`[+0.1055,+0.8248]` and exact McNemar `p=0.02785`. The replicated ECHO-full arm
+is `+0.5734` points over JUDO with 95% CI `[+0.1100,+1.0398]` and exact McNemar
+`p=0.01592`, but only `+0.1141` points over FREB with a confidence interval
+crossing zero. CE-only is the strongest arm on this panel (`+1.0598` points
+over JUDO, 95% CI `[+0.5243,+1.5947]`, McNemar `p=0.00009597`).
+
+These controls show that the evidence-aligned reader is a defensible structural
+constraint but is not the sole explanation for the observed gains. The Full
+MMAD headline remains attached to the released `21623b...` ECHO-v1 checkpoint;
+no Full-MMAD score is claimed for the later CE-only ablation checkpoint.
+
+See [PUBLICATION_ABLATION.md](PUBLICATION_ABLATION.md) and
+`results/publication_ablation_5600_summary.json` for the complete nine-arm
+report. Exact row-level outputs are retained in the private cold-storage bundle
+rather than redistributed in Git.

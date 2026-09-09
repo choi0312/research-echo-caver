@@ -2,7 +2,7 @@
 
 **Evidence-tangent residual readers for FREB-CAVER.**
 
-[한국어](README.ko.md) · [Method](METHOD.md) · [Results](RESULTS.md) · [Reproducibility](REPRODUCIBILITY.md) · [Claim boundaries](CLAIMS.md) · [FREB-CAVER](https://github.com/choi0312/FREB-CAVER)
+[한국어](README.ko.md) · [Method](METHOD.md) · [Results](RESULTS.md) · [Reproducibility](REPRODUCIBILITY.md) · [Model card](MODEL_CARD.md) · [Data card](DATA_CARD.md) · [Full ablation](PUBLICATION_ABLATION.md) · [Release guide](RELEASE.md) · [Claim boundaries](CLAIMS.md) · [FREB-CAVER](https://github.com/choi0312/FREB-CAVER)
 
 ECHO-CAVER is a parameter-efficient extension of
 [FREB-CAVER](https://github.com/choi0312/FREB-CAVER) on the public
@@ -120,7 +120,7 @@ All nine arms, the shared manifest and inference-contract identities, and the
 | `artifacts/training/` | Frozen training contract and mechanics receipt |
 | `recipes/` | Recorded H200 evaluation recipes |
 | `tests/` | Checkpoint, coverage, score, and archive identity tests |
-| `paper/` | Research-archive manuscript |
+| `paper/` | Manuscript source; generated PDF/figures excluded |
 
 ## Quick integrity check
 

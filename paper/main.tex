@@ -1,8 +1,7 @@
 \documentclass[10pt]{article}
 \usepackage[margin=0.78in]{geometry}
 \usepackage{amsmath,amssymb,booktabs,array,microtype}
-\usepackage{xcolor,hyperref,graphicx,tikz}
-\usetikzlibrary{arrows.meta,positioning,fit}
+\usepackage{xcolor,hyperref}
 \hypersetup{colorlinks=true,linkcolor=blue!55!black,citecolor=blue!55!black,urlcolor=blue!55!black}
 \definecolor{echocyan}{HTML}{0891B2}
 \definecolor{frebamber}{HTML}{D97706}
@@ -74,14 +73,10 @@ orthogonal-subspace continual learning \cite{wang2023olora}: ECHO learns
 inside the existing evidence span instead of reserving a new orthogonal task
 subspace.
 
-\begin{figure*}[t]
-\centering
-\includegraphics[width=\textwidth]{../assets/echo_caver_architecture.png}
-\caption{ECHO-CAVER architecture. Frozen JUDO and FREB components are separated
-from trainable evidence-tangent readers. Each reader is placed one block after
-its paired writer and constrained to the writer's rank-32 output span.}
-\label{fig:architecture}
-\end{figure*}
+The released implementation pairs FREB writer layers 18/20/22/24/26 with
+ECHO reader layers 19/21/23/25/27 and adapts each reader's attention output and
+MLP down projection. This textual contract is authoritative; generated figures
+are intentionally excluded from the minimal source release.
 
 \subsection{Objective}
 Training pairs each question with a semantic option permutation. For candidate

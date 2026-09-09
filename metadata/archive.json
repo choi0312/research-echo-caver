@@ -1,8 +1,8 @@
 {
   "schema_version": "echo-caver-private-research-archive-v1",
   "title": "[Research] ECHO-CAVER: Evidence-Tangent Residual Readers for FREB-CAVER",
-  "version": "0.1.0",
-  "date": "2026-08-24",
+  "version": "0.2.0-repro",
+  "date": "2026-09-09",
   "status": "research-candidate",
   "repository": "https://github.com/choi0312/research-echo-caver",
   "method": "ECHO-CAVER-v1",

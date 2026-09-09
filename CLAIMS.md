@@ -16,6 +16,12 @@
 - On the 5,600-row component-disjoint paired panel, ECHO improves the point
   estimate by 0.2698 points but the confidence interval includes zero and the
   exact McNemar test is not significant.
+- In the later nine-arm publication replication, FREB improves over JUDO by
+  0.4593 points and replicated ECHO-full improves over JUDO by 0.5734 points;
+  both component-bootstrap intervals exclude zero. ECHO-full improves only
+  0.1141 points over FREB and that interval includes zero.
+- CE-only is the strongest publication-ablation arm at 81.5821%, but it has no
+  Full-MMAD evaluation and is not the released ECHO-v1 checkpoint.
 
 ## Not supported
 
@@ -28,6 +34,8 @@
 - A paired significance or harmonized ranking claim against JUDO or AD-Copilot.
   Their paper-reported row-level predictions were not re-scored with this
   archive's strict parser.
+- A claim that the writer-subspace constraint uniquely causes the gain. The
+  CE-only and random-subspace controls do not support that exclusivity claim.
 
 ## Required reporting language
 
