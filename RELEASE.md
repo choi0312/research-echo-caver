@@ -4,7 +4,8 @@
 
 | Artifact | Identity |
 |---|---|
-| Source | Git tag `v0.2.0-repro` and its commit |
+| Source for this documentation release | Git tag `v0.2.1` and its commit |
+| Original reproducibility release | Git tag `v0.2.0-repro` and its commit |
 | ECHO-v1 weights | `21623bfafc3d329128e2753a5600a9197088ef527deeb44687ea0eacd89f4bb9` |
 | FREB parent weights | `ac3233dbee2de9dd1aaea4acede275ddc2d7a322427795717d9232291e03b0ed` |
 | Exact inference runner | `f160385a1004749485f2dff060e121ac1bf280770d92914171d7613289b8d6a9` |

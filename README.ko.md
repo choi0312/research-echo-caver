@@ -2,7 +2,7 @@
 
 **FREB-CAVER를 위한 evidence-tangent residual reader**
 
-[English](README.md) · [Method](METHOD.md) · [Results](RESULTS.md) · [Reproducibility](REPRODUCIBILITY.md) · [Claim boundaries](CLAIMS.md) · [FREB-CAVER](https://github.com/choi0312/FREB-CAVER)
+[English](README.md) · [Method](METHOD.md) · [Results](RESULTS.md) · [Reproducibility](REPRODUCIBILITY.md) · [릴리스 검증 가이드](RELEASE.md) · [Claim boundaries](CLAIMS.md) · [FREB-CAVER](https://github.com/choi0312/FREB-CAVER)
 
 ECHO-CAVER는 공개 [JUDO](https://github.com/woodavid31/JUDO) 및
 [FREB-CAVER](https://github.com/choi0312/FREB-CAVER)를 확장한 parameter-efficient
